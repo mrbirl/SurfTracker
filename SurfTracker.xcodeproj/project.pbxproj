@@ -14,6 +14,7 @@
 		855ACE3B1D5B4F56006E9F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE3A1D5B4F56006E9F19 /* Assets.xcassets */; };
 		855ACE3E1D5B4F56006E9F19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE3C1D5B4F56006E9F19 /* LaunchScreen.storyboard */; };
 		855ACE491D5B4F56006E9F19 /* SurfTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE481D5B4F56006E9F19 /* SurfTrackerTests.swift */; };
+		855ACE541D5B505E006E9F19 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE531D5B505E006E9F19 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		855ACE441D5B4F56006E9F19 /* SurfTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurfTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		855ACE481D5B4F56006E9F19 /* SurfTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfTrackerTests.swift; sourceTree = "<group>"; };
 		855ACE4A1D5B4F56006E9F19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		855ACE531D5B505E006E9F19 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		855ACE241D5B4F56006E9F19 = {
 			isa = PBXGroup;
 			children = (
+				855ACE531D5B505E006E9F19 /* .gitignore */,
 				855ACE2F1D5B4F56006E9F19 /* SurfTracker */,
 				855ACE471D5B4F56006E9F19 /* SurfTrackerTests */,
 				855ACE2E1D5B4F56006E9F19 /* Products */,
@@ -182,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855ACE541D5B505E006E9F19 /* .gitignore in Resources */,
 				855ACE3E1D5B4F56006E9F19 /* LaunchScreen.storyboard in Resources */,
 				855ACE3B1D5B4F56006E9F19 /* Assets.xcassets in Resources */,
 				855ACE361D5B4F56006E9F19 /* Main.storyboard in Resources */,
