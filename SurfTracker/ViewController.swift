@@ -9,17 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // MARK: Properties
+    
+    @IBOutlet weak var sessionDateButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set the default time for the session
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+        dateFormatter.timeStyle = .MediumStyle
+        sessionDateButton.setTitle(dateFormatter.stringFromDate(NSDate()), forState: .Normal)
+        
     }
+    
+    
+    // MARK: Actions
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func setSessionDate(sender: UIButton) {
+        sessionDateButton.setTitle("August 18th, 2016", forState: .Normal)
     }
-
-
 }
 
