@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         dateFormatter.timeStyle = .MediumStyle
         sessionDateTextField.text = (dateFormatter.stringFromDate(NSDate()))
         
-        // Load datepicker for session date/time
+        // Datepicker for session date/time
         let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
         
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
@@ -66,10 +66,11 @@ class ViewController: UIViewController {
     
     
     // Datepicker management
+    
     @IBAction func sessionDateEditing(sender: UITextField) {
         let datePickerView: UIDatePicker = UIDatePicker()
         
-        datePickerView.datePickerMode = UIDatePickerMode.Date
+        datePickerView.datePickerMode = UIDatePickerMode.DateAndTime
         
         sender.inputView = datePickerView
         
@@ -86,9 +87,9 @@ class ViewController: UIViewController {
         
         let dateformatter = NSDateFormatter()
         
-        dateformatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateformatter.dateStyle = NSDateFormatterStyle.LongStyle
         
-        dateformatter.timeStyle = NSDateFormatterStyle.NoStyle
+        dateformatter.timeStyle = NSDateFormatterStyle.MediumStyle
         
         sessionDateTextField.text = dateformatter.stringFromDate(NSDate())
         
@@ -103,9 +104,9 @@ class ViewController: UIViewController {
         
         let dateFormatter = NSDateFormatter()
         
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
         
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
         
         sessionDateTextField.text = dateFormatter.stringFromDate(sender.date)
         
