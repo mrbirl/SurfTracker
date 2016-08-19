@@ -8,57 +8,106 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     // MARK: Properties
     
     @IBOutlet weak var sessionDateTextField: UITextField!
     
+    @IBOutlet weak var tideTextField: UITextField!
+    
+    var tidePickOption = [["Low", "Mid", "High"], ["Rising", "Falling"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib.ß
         
         // Set the default time for the session
+        
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
-        dateFormatter.timeStyle = .MediumStyle
+        dateFormatter.timeStyle = .ShortStyle
         sessionDateTextField.text = (dateFormatter.stringFromDate(NSDate()))
         
         // Datepicker for session date/time
-        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
         
-        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        let dateToolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
         
-        toolBar.barStyle = UIBarStyle.BlackTranslucent
+        dateToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         
-        toolBar.tintColor = UIColor.whiteColor()
+        dateToolBar.barStyle = UIBarStyle.BlackTranslucent
         
-        toolBar.backgroundColor = UIColor.blackColor()
+        dateToolBar.tintColor = UIColor.whiteColor()
+        
+        dateToolBar.backgroundColor = UIColor.blackColor()
         
         
-        let todayBtn = UIBarButtonItem(title: "Today", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.tappedToolBarBtn))
+        let dateNowBtn = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.tappedNowDateToolBarBtn))
         
-        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(ViewController.donePressed))
+        let dateOkBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(ViewController.dateDonePressed))
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        let dateFlexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
+        let dateLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         
-        label.font = UIFont(name: "Helvetica", size: 12)
+        dateLabel.font = UIFont(name: "Helvetica", size: 12)
         
-        label.backgroundColor = UIColor.clearColor()
+        dateLabel.backgroundColor = UIColor.clearColor()
         
-        label.textColor = UIColor.whiteColor()
+        dateLabel.textColor = UIColor.whiteColor()
         
-        label.text = "Select a due date"
+        dateLabel.text = "Set Session Time"
         
-        label.textAlignment = NSTextAlignment.Center
+        dateLabel.textAlignment = NSTextAlignment.Center
         
-        let textBtn = UIBarButtonItem(customView: label)
+        let dateTextBtn = UIBarButtonItem(customView: dateLabel)
         
-        toolBar.setItems([todayBtn,flexSpace,textBtn,flexSpace,okBarBtn], animated: true)
+        dateToolBar.setItems([dateNowBtn,dateFlexSpace,dateTextBtn,dateFlexSpace,dateOkBarBtn], animated: true)
         
-        sessionDateTextField.inputAccessoryView = toolBar
+        sessionDateTextField.inputAccessoryView = dateToolBar
+        
+        // Picker for tide
+        
+        let tidePickerView = UIPickerView()
+        
+        tidePickerView.delegate = self
+        
+        tideTextField.inputView = tidePickerView
+        
+        let tideToolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
+        
+        tideToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
+        
+        tideToolBar.barStyle = UIBarStyle.BlackTranslucent
+        
+        tideToolBar.tintColor = UIColor.whiteColor()
+        
+        tideToolBar.backgroundColor = UIColor.blackColor()
+        
+        
+        let defaultButton = UIBarButtonItem(title: "Default", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.tappedToolBarBtn))
+        
+        let tideDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(ViewController.tideDonePressed))
+        
+        let tideFlexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+        
+        let tideLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
+        
+        tideLabel.font = UIFont(name: "Helvetica", size: 12)
+        
+        tideLabel.backgroundColor = UIColor.clearColor()
+        
+        tideLabel.textColor = UIColor.whiteColor()
+        
+        tideLabel.text = "Set tide stage"
+        
+        tideLabel.textAlignment = NSTextAlignment.Center
+        
+        let textBtn = UIBarButtonItem(customView: tideLabel)
+        
+        tideToolBar.setItems([defaultButton,tideFlexSpace,textBtn,tideFlexSpace,tideDoneButton], animated: true)
+        
+        tideTextField.inputAccessoryView = tideToolBar
         
     }
     
@@ -77,19 +126,19 @@ class ViewController: UIViewController {
         datePickerView.addTarget(self, action: #selector(ViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
     }
     
-    func donePressed(sender: UIBarButtonItem) {
+    func dateDonePressed(sender: UIBarButtonItem) {
         
         sessionDateTextField.resignFirstResponder()
         
     }
     
-    func tappedToolBarBtn(sender: UIBarButtonItem) {
+    func tappedNowDateToolBarBtn(sender: UIBarButtonItem) {
         
         let dateformatter = NSDateFormatter()
         
         dateformatter.dateStyle = NSDateFormatterStyle.LongStyle
         
-        dateformatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        dateformatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         sessionDateTextField.text = dateformatter.stringFromDate(NSDate())
         
@@ -106,11 +155,48 @@ class ViewController: UIViewController {
         
         dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
         
-        dateFormatter.timeStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         
         sessionDateTextField.text = dateFormatter.stringFromDate(sender.date)
         
     }
+    
+    // Tide picker management
+    
+    func tideDonePressed(sender: UIBarButtonItem) {
+        
+        tideTextField.resignFirstResponder()
+        
+    }
+    
+    func tappedToolBarBtn(sender: UIBarButtonItem) {
+        
+        tideTextField.text = "one"
+        
+        tideTextField.resignFirstResponder()
+    }
+    
+    // Advanced tide selection
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return tidePickOption.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return tidePickOption[component].count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return tidePickOption[component][row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let color = tidePickOption[0][pickerView.selectedRowInComponent(0)]
+        let model = tidePickOption[1][pickerView.selectedRowInComponent(1)]
+        tideTextField.text = color + " " + model
+    }
+    
+
 
 }
 
