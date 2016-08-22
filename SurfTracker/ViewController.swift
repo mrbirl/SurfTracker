@@ -18,9 +18,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var tidePickOption = [["Low", "Mid", "High"], ["Rising", "Falling"]]
     
+    var default_tide: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.ß
+        
+        // Set default tide (for 'cancel' button when selecting tide)
+        default_tide = ""
         
         // Set the default time for the session
         
@@ -66,7 +71,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         sessionDateTextField.inputAccessoryView = dateToolBar
         
-        // Picker for tide
+        // Picker for Tide
         
         let tidePickerView = UIPickerView()
         
@@ -85,7 +90,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         tideToolBar.backgroundColor = UIColor.blackColor()
         
         
-        let defaultButton = UIBarButtonItem(title: "Default", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.tappedToolBarBtn))
+        let tideCancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.tappedTideCancelToolBarBtn))
         
         let tideDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(ViewController.tideDonePressed))
         
@@ -99,13 +104,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         tideLabel.textColor = UIColor.whiteColor()
         
-        tideLabel.text = "Set tide stage"
+        tideLabel.text = "Set Tide Stage"
         
         tideLabel.textAlignment = NSTextAlignment.Center
         
-        let textBtn = UIBarButtonItem(customView: tideLabel)
+        let tideTextBtn = UIBarButtonItem(customView: tideLabel)
         
-        tideToolBar.setItems([defaultButton,tideFlexSpace,textBtn,tideFlexSpace,tideDoneButton], animated: true)
+        tideToolBar.setItems([tideCancelButton,tideFlexSpace,tideTextBtn,tideFlexSpace,tideDoneButton], animated: true)
         
         tideTextField.inputAccessoryView = tideToolBar
         
@@ -164,19 +169,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     // Tide picker management
     
     func tideDonePressed(sender: UIBarButtonItem) {
-        
+        default_tide = tideTextField.text  // Update current tide default, in case user cancels when editing again
         tideTextField.resignFirstResponder()
         
     }
     
-    func tappedToolBarBtn(sender: UIBarButtonItem) {
+    func tappedTideCancelToolBarBtn(sender: UIBarButtonItem) {
         
-        tideTextField.text = "one"
+        tideTextField.text = default_tide
         
         tideTextField.resignFirstResponder()
     }
-    
-    // Advanced tide selection
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return tidePickOption.count
@@ -191,9 +194,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let color = tidePickOption[0][pickerView.selectedRowInComponent(0)]
-        let model = tidePickOption[1][pickerView.selectedRowInComponent(1)]
-        tideTextField.text = color + " " + model
+        let tide_height = tidePickOption[0][pickerView.selectedRowInComponent(0)]
+        let tide_direction = tidePickOption[1][pickerView.selectedRowInComponent(1)]
+        tideTextField.text = tide_height + " | " + tide_direction
     }
     
 
