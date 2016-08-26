@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     
     @IBOutlet weak var sessionDateTextField: UITextField!
-    
     @IBOutlet weak var tideTextField: UITextField!
+    @IBOutlet weak var sessionPhotoImageView: UIImageView!
     
     var tidePickOption = [["Low", "Mid", "High"], ["Rising", "Falling"]]
     
@@ -116,8 +116,43 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     }
     
+    // MARK: UIImagePickerControllerDelegate
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        // Dismiss the picker if the user canceled.
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        // The info dictionary contains multiple representations of the image, and this uses the original.
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // Set photoImageView to display the selected image.
+        sessionPhotoImageView.image = selectedImage
+        
+        // Dismiss the picker.
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     // MARK: Actions
     
+    @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
+        
+        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
+        let imagePickerController = UIImagePickerController()
+        
+        // Only allow photos to be picked, not taken.
+        imagePickerController.sourceType = .PhotoLibrary
+        
+        // Make sure ViewController is notified when the user picks an image.
+        imagePickerController.delegate = self
+        
+        presentViewController(imagePickerController, animated: true, completion: nil)
+        
+    }
     
     // Datepicker management
     
