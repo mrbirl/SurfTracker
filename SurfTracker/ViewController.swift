@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var sessionDateTextField: UITextField!
     @IBOutlet weak var tideTextField: UITextField!
     @IBOutlet weak var sessionPhotoImageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
     
     var tidePickOption = [["Low", "Mid", "High"], ["Rising", "Falling"]]
     
