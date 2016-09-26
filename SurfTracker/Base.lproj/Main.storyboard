@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Session Table View Controller-->
         <scene sceneID="NJR-hX-DxO">
             <objects>
-                <tableViewController id="oEu-Hw-QPH" sceneMemberID="viewController">
+                <tableViewController id="oEu-Hw-QPH" customClass="SessionTableViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mii-ej-UIu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,6 +42,11 @@
                                         </view>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="photoImageView" destination="XFs-Os-Ash" id="MuG-VD-LeT"/>
+                                    <outlet property="ratingControl" destination="xgE-8f-ujY" id="KMK-en-pLc"/>
+                                    <outlet property="timeLabel" destination="9k3-J0-nQ0" id="S1o-a1-u8q"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

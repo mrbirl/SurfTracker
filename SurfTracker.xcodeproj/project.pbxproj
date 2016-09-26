@@ -17,6 +17,7 @@
 		855ACE541D5B505E006E9F19 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE531D5B505E006E9F19 /* .gitignore */; };
 		8594E6271D98085600C9ED42 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E6261D98085600C9ED42 /* Session.swift */; };
 		8594E6291D980FE300C9ED42 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */; };
+		8594E62B1D98462700C9ED42 /* SessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */; };
 		85C2E3981D70995900A27D46 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2E3971D70995900A27D46 /* RatingControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		855ACE531D5B505E006E9F19 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8594E6261D98085600C9ED42 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
+		8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewController.swift; sourceTree = "<group>"; };
 		85C2E3971D70995900A27D46 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				855ACE301D5B4F56006E9F19 /* AppDelegate.swift */,
 				855ACE321D5B4F56006E9F19 /* ViewController.swift */,
 				855ACE341D5B4F56006E9F19 /* Main.storyboard */,
+				8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */,
 				8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */,
 				8594E6261D98085600C9ED42 /* Session.swift */,
 				85C2E3971D70995900A27D46 /* RatingControl.swift */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8594E6291D980FE300C9ED42 /* SessionTableViewCell.swift in Sources */,
+				8594E62B1D98462700C9ED42 /* SessionTableViewController.swift in Sources */,
 				8594E6271D98085600C9ED42 /* Session.swift in Sources */,
 				85C2E3981D70995900A27D46 /* RatingControl.swift in Sources */,
 				855ACE331D5B4F56006E9F19 /* ViewController.swift in Sources */,
