@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		855ACE311D5B4F56006E9F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE301D5B4F56006E9F19 /* AppDelegate.swift */; };
-		855ACE331D5B4F56006E9F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE321D5B4F56006E9F19 /* ViewController.swift */; };
+		855ACE331D5B4F56006E9F19 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE321D5B4F56006E9F19 /* SessionViewController.swift */; };
 		855ACE361D5B4F56006E9F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE341D5B4F56006E9F19 /* Main.storyboard */; };
 		855ACE391D5B4F56006E9F19 /* SurfTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE371D5B4F56006E9F19 /* SurfTracker.xcdatamodeld */; };
 		855ACE3B1D5B4F56006E9F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE3A1D5B4F56006E9F19 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		855ACE2D1D5B4F56006E9F19 /* SurfTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		855ACE301D5B4F56006E9F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		855ACE321D5B4F56006E9F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		855ACE321D5B4F56006E9F19 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		855ACE351D5B4F56006E9F19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		855ACE381D5B4F56006E9F19 /* SurfTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SurfTracker.xcdatamodel; sourceTree = "<group>"; };
 		855ACE3A1D5B4F56006E9F19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				855ACE301D5B4F56006E9F19 /* AppDelegate.swift */,
-				855ACE321D5B4F56006E9F19 /* ViewController.swift */,
+				855ACE321D5B4F56006E9F19 /* SessionViewController.swift */,
 				855ACE341D5B4F56006E9F19 /* Main.storyboard */,
 				8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */,
 				8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */,
@@ -224,7 +224,7 @@
 				8594E62B1D98462700C9ED42 /* SessionTableViewController.swift in Sources */,
 				8594E6271D98085600C9ED42 /* Session.swift in Sources */,
 				85C2E3981D70995900A27D46 /* RatingControl.swift in Sources */,
-				855ACE331D5B4F56006E9F19 /* ViewController.swift in Sources */,
+				855ACE331D5B4F56006E9F19 /* SessionViewController.swift in Sources */,
 				855ACE391D5B4F56006E9F19 /* SurfTracker.xcdatamodeld in Sources */,
 				855ACE311D5B4F56006E9F19 /* AppDelegate.swift in Sources */,
 			);

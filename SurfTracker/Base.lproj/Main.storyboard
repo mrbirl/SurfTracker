@@ -59,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="-511.19999999999999" y="349.47526236881561"/>
         </scene>
-        <!--View Controller-->
+        <!--Session View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SessionViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

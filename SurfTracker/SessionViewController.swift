@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SessionViewController.swift
 //  SurfTracker
 //
 //  Created by Cian Brassil on 10/08/2016.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     
@@ -48,9 +48,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         dateToolBar.backgroundColor = UIColor.black
         
         
-        let dateNowBtn = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.tappedNowDateToolBarBtn))
+        let dateNowBtn = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SessionViewController.tappedNowDateToolBarBtn))
         
-        let dateOkBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ViewController.dateDonePressed))
+        let dateOkBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(SessionViewController.dateDonePressed))
         
         let dateFlexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         
@@ -91,9 +91,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         tideToolBar.backgroundColor = UIColor.black
         
         
-        let tideCancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.tappedTideCancelToolBarBtn))
+        let tideCancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SessionViewController.tappedTideCancelToolBarBtn))
         
-        let tideDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(ViewController.tideDonePressed))
+        let tideDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(SessionViewController.tideDonePressed))
         
         let tideFlexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         
@@ -164,7 +164,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         sender.inputView = datePickerView
         
-        datePickerView.addTarget(self, action: #selector(ViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
+        datePickerView.addTarget(self, action: #selector(SessionViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
     func dateDonePressed(_ sender: UIBarButtonItem) {
