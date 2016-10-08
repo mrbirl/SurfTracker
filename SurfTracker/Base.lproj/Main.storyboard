@@ -13,15 +13,15 @@
             <objects>
                 <tableViewController id="oEu-Hw-QPH" customClass="SessionTableViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mii-ej-UIu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SessionTableViewCell" rowHeight="90" id="NpL-Ed-ewC" customClass="SessionTableViewCell" customModule="SurfTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NpL-Ed-ewC" id="aMF-pt-1MW">
-                                    <frame key="frameInset" width="375" height="89.5"/>
+                                    <frame key="frameInset" width="414" height="89.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Os-Ash">
@@ -75,13 +75,15 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-1j-tEj">
-                                <frame key="frameInset" minX="20" minY="80" width="343" height="442"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-1j-tEj">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xA2-Sk-vC3">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="w96-JM-3w5"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -90,15 +92,21 @@
                                     </textField>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-Ur-UgU" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="M2w-xN-3CO"/>
+                                        </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Tide Stage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-6c-4Hs">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ebR-ru-JQf"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="uCZ-4e-iWE">
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="uCZ-4e-iWE" secondAttribute="height" multiplier="1:1" id="o2Z-6T-hFK"/>
+                                            <constraint firstAttribute="width" secondItem="uCZ-4e-iWE" secondAttribute="height" multiplier="1:1" id="zdF-zr-1O1"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Lls-T4-vn6" appends="YES" id="VGU-2W-gy9"/>
@@ -106,18 +114,23 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="xA2-Sk-vC3" firstAttribute="leading" secondItem="Biq-1j-tEj" secondAttribute="leading" id="I1E-uU-gVZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="E9Z-6c-4Hs" secondAttribute="trailing" id="ikt-AU-quW"/>
-                                    <constraint firstAttribute="trailing" secondItem="xA2-Sk-vC3" secondAttribute="trailing" id="xAg-7f-n8U"/>
-                                    <constraint firstItem="E9Z-6c-4Hs" firstAttribute="leading" secondItem="Biq-1j-tEj" secondAttribute="leading" id="xnZ-KP-CAZ"/>
+                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="width" secondItem="Biq-1j-tEj" secondAttribute="width" id="0IA-4O-D2f"/>
+                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="top" secondItem="xA2-Sk-vC3" secondAttribute="bottom" constant="12" id="6LB-om-Phs"/>
+                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="centerX" secondItem="Biq-1j-tEj" secondAttribute="centerX" id="Cjc-b0-7CH"/>
+                                    <constraint firstItem="uCZ-4e-iWE" firstAttribute="top" secondItem="E9Z-6c-4Hs" secondAttribute="bottom" constant="12" id="Lu4-1a-U0K"/>
+                                    <constraint firstAttribute="trailing" secondItem="uCZ-4e-iWE" secondAttribute="trailing" constant="47" id="Xvk-Af-kVR"/>
+                                    <constraint firstItem="uCZ-4e-iWE" firstAttribute="leading" secondItem="Biq-1j-tEj" secondAttribute="leading" constant="47" id="wu5-HR-Krt"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Biq-1j-tEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1BN-pz-tsk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Biq-1j-tEj" secondAttribute="trailing" id="7VS-f1-3pN"/>
-                            <constraint firstItem="Biq-1j-tEj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="8QG-iU-G22"/>
+                            <constraint firstItem="Biq-1j-tEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4UQ-xB-Cfm"/>
+                            <constraint firstAttribute="trailing" secondItem="Biq-1j-tEj" secondAttribute="trailing" id="8cH-yb-frF"/>
+                            <constraint firstItem="Biq-1j-tEj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SdX-Bo-l0r"/>
+                            <constraint firstAttribute="trailing" secondItem="Biq-1j-tEj" secondAttribute="trailing" id="VaE-Rp-GWh"/>
+                            <constraint firstItem="Biq-1j-tEj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gRL-Vc-HyU"/>
+                            <constraint firstItem="Biq-1j-tEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jyv-Tg-af6"/>
                         </constraints>
                     </view>
                     <connections>
@@ -134,7 +147,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1244" y="350.37481259370315"/>
+            <point key="canvasLocation" x="1326" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P6m-kB-jfN">
