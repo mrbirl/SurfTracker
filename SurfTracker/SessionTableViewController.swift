@@ -30,13 +30,13 @@ class SessionTableViewController: UITableViewController {
         exampleTime = (dateFormatter.string(from: Date()))
         
         let photo1 = UIImage(named: "session1")!
-        let session1 = Session(time: exampleTime, photo: photo1, rating: 4)
+        let session1 = Session(time: exampleTime, rating: 4, photo: photo1, tide: "High | Falling")!
         
         let photo2 = UIImage(named: "session2")!
-        let session2 = Session(time: exampleTime, photo: photo2, rating: 5)
+        let session2 = Session(time: exampleTime, rating: 5, photo: photo2, tide: "Low | Rising")!
         
         let photo3 = UIImage(named: "session3")!
-        let session3 = Session(time: exampleTime, photo: photo3, rating: 3)
+        let session3 = Session(time: exampleTime, rating: 3, photo: photo3, tide: nil)!
         
         sessions += [session1, session2, session3]
     }

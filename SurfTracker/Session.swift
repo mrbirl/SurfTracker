@@ -13,22 +13,21 @@ class Session {
     // MARK: Properties
     
     var time: String
-    var photo: UIImage?
     var rating: Int
+    var photo: UIImage?
     var tide: String?
     
     // MARK: Initialization
     
-    init(time: String, photo: UIImage?, rating: Int) {
+    init?(time: String, rating: Int, photo: UIImage?, tide: String?) {
         self.time = time
-        self.photo = photo
         self.rating = rating
-//        self.tide = tide
-        // Note tide isn't included. Look into how to make photos, tides optional in case a session doesn't have one
+        self.photo = photo
+        self.tide = tide
         
         // Initialization should fail if there is no time or if the rating is negative.
-//        if time == nil || rating < 0 {
-//            return nil
-//        }
+        if time.isEmpty || rating < 0 {
+            return nil
+        }
     }
 }
