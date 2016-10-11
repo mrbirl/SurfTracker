@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,15 +12,15 @@
             <objects>
                 <tableViewController id="oEu-Hw-QPH" customClass="SessionTableViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mii-ej-UIu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SessionTableViewCell" rowHeight="90" id="NpL-Ed-ewC" customClass="SessionTableViewCell" customModule="SurfTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NpL-Ed-ewC" id="aMF-pt-1MW">
-                                    <frame key="frameInset" width="414" height="89.666666666666671"/>
+                                    <frame key="frameInset" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Os-Ash">
@@ -75,7 +74,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-1j-tEj">
@@ -93,7 +92,8 @@
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-Ur-UgU" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="M2w-xN-3CO"/>
+                                            <constraint firstAttribute="width" constant="240" id="BgP-PY-xki"/>
+                                            <constraint firstAttribute="height" constant="44" id="iBB-Cj-YVh"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Tide Stage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-6c-4Hs">
@@ -114,21 +114,19 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="width" secondItem="Biq-1j-tEj" secondAttribute="width" id="0IA-4O-D2f"/>
-                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="top" secondItem="xA2-Sk-vC3" secondAttribute="bottom" constant="12" id="6LB-om-Phs"/>
-                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="centerX" secondItem="Biq-1j-tEj" secondAttribute="centerX" id="Cjc-b0-7CH"/>
                                     <constraint firstItem="uCZ-4e-iWE" firstAttribute="top" secondItem="E9Z-6c-4Hs" secondAttribute="bottom" constant="12" id="Lu4-1a-U0K"/>
                                     <constraint firstAttribute="trailing" secondItem="uCZ-4e-iWE" secondAttribute="trailing" constant="47" id="Xvk-Af-kVR"/>
+                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="top" secondItem="xA2-Sk-vC3" secondAttribute="bottom" constant="12" id="exk-lQ-ScF"/>
                                     <constraint firstItem="uCZ-4e-iWE" firstAttribute="leading" secondItem="Biq-1j-tEj" secondAttribute="leading" constant="47" id="wu5-HR-Krt"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Biq-1j-tEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4UQ-xB-Cfm"/>
                             <constraint firstAttribute="trailing" secondItem="Biq-1j-tEj" secondAttribute="trailing" id="8cH-yb-frF"/>
                             <constraint firstItem="Biq-1j-tEj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SdX-Bo-l0r"/>
                             <constraint firstAttribute="trailing" secondItem="Biq-1j-tEj" secondAttribute="trailing" id="VaE-Rp-GWh"/>
+                            <constraint firstItem="Biq-1j-tEj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ffI-Iv-TmI"/>
                             <constraint firstItem="Biq-1j-tEj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gRL-Vc-HyU"/>
                             <constraint firstItem="Biq-1j-tEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jyv-Tg-af6"/>
                         </constraints>
