@@ -78,6 +78,19 @@ class SessionTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		print("Selected row number \(indexPath.row)")
 	}
+    
+    // MARK: Actions
+    @IBAction func unwindToSessionList(sender: UIStoryboardSegue) {
+        
+        if let sourceViewController = sender.source as? SessionViewController, let session = sourceViewController.session {
+            /* Add a new session. Computes the location in the table view where the new table view cell representing the new session will be inserted, and stores it in a local constant called newIndexPath. */
+            let newIndexPath = IndexPath(row: sessions.count, section: 0)
+            
+            sessions.append(session)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
 
 
     /*

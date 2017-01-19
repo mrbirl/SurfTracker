@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -16,6 +17,14 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var tideTextField: UITextField!
     @IBOutlet weak var sessionPhotoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    /*
+     This value is either passed by `SessionTableViewController` in `prepare(for:sender:)`
+     or constructed as part of adding a new session.
+     */
+    var session: Session?
+    
     
     var tidePickOption = [["Low", "Low/Mid", "Mid", "Mid/High", "High"], ["Rising", "Falling"]]
     
@@ -135,6 +144,41 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // This method lets you configure a view controller before it's presented.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /*
+            It’s a good habit to always call super.prepare(for:sender:) whenever you override prepare(for:sender:).
+            That way you won’t forget it when you subclass a different class.
+         */
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            if #available(iOS 10.0, *) {
+                os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            return
+        }
+        
+        let date = sessionDateTextField.text ?? ""
+        let tide = tideTextField.text ?? ""
+        let photo = sessionPhotoImageView.image
+        let rating = ratingControl.rating
+        
+        // Set the session to be passed to SessionTableViewController after the unwind segue.
+        session = Session(time: date, rating: rating, photo: photo, tide: tide)
+
     }
     
     

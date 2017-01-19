@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RCq-DN-EOh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RCq-DN-EOh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,25 +20,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SessionTableViewCell" rowHeight="90" id="NpL-Ed-ewC" customClass="SessionTableViewCell" customModule="SurfTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NpL-Ed-ewC" id="aMF-pt-1MW">
-                                    <frame key="frameInset" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Os-Ash">
-                                            <frame key="frameInset" width="90" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9k3-J0-nQ0">
-                                            <frame key="frameInset" minX="98" minY="8" width="269" height="21"/>
+                                            <rect key="frame" x="98" y="8" width="269" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xgE-8f-ujY" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
-                                            <frame key="frameInset" minX="98" minY="37" width="240" height="44"/>
+                                            <rect key="frame" x="98" y="37" width="240" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -56,7 +59,7 @@
                     <navigationItem key="navigationItem" title="Sessions" id="3e1-qz-hBN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BrJ-3e-Sce">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="uNd-6M-JfU"/>
+                                <segue destination="BwT-IQ-OMp" kind="presentation" identifier="AddSession" id="uNd-6M-JfU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -65,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="428" y="349.47526236881561"/>
         </scene>
-        <!--Session View Controller-->
+        <!--New Session-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SessionViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,8 +81,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-1j-tEj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="421"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xA2-Sk-vC3">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="w96-JM-3w5"/>
                                         </constraints>
@@ -90,6 +95,7 @@
                                         </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-Ur-UgU" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
+                                        <rect key="frame" x="67.5" y="42" width="240" height="44"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="BgP-PY-xki"/>
@@ -97,6 +103,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Tide Stage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-6c-4Hs">
+                                        <rect key="frame" x="0.0" y="98" width="375" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ebR-ru-JQf"/>
                                         </constraints>
@@ -104,6 +111,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="uCZ-4e-iWE">
+                                        <rect key="frame" x="47" y="140" width="281" height="281"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uCZ-4e-iWE" secondAttribute="height" multiplier="1:1" id="zdF-zr-1O1"/>
@@ -131,21 +139,35 @@
                             <constraint firstItem="Biq-1j-tEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jyv-Tg-af6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Session" id="8Mn-DL-yME">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="row-aE-aPb">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="Ndh-Bi-8L2"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wCO-kK-USC">
+                            <connections>
+                                <segue destination="mqs-7s-vYc" kind="unwind" unwindAction="unwindToSessionListWithSender:" id="Wxn-OB-Rsg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ratingControl" destination="lTl-Ur-UgU" id="eFZ-AG-Z6p"/>
+                        <outlet property="saveButton" destination="wCO-kK-USC" id="Eu4-t6-AHU"/>
                         <outlet property="sessionDateTextField" destination="xA2-Sk-vC3" id="FKg-Kx-IdZ"/>
                         <outlet property="sessionPhotoImageView" destination="uCZ-4e-iWE" id="RVw-x0-rEJ"/>
                         <outlet property="tideTextField" destination="E9Z-6c-4Hs" id="ixy-Z0-2lF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="mqs-7s-vYc" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Lls-T4-vn6">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="lRY-nt-x0C"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1326" y="349"/>
+            <point key="canvasLocation" x="2264.8000000000002" y="348.57571214392806"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P6m-kB-jfN">
@@ -164,6 +186,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sze-iL-Wej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-511.19999999999999" y="349.47526236881561"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pYa-am-cLg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BwT-IQ-OMp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QSU-Z2-P4k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9eH-UL-94y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AX-Bj-S4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325.5999999999999" y="348.57571214392806"/>
         </scene>
     </scenes>
     <resources>
