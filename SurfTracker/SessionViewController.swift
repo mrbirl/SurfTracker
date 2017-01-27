@@ -34,6 +34,14 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.ß
         
+        // Set up views if editing an existing Session.
+        if let session = session {
+            sessionDateTextField.text = session.time
+            tideTextField.text = session.tide
+            sessionPhotoImageView.image = session.photo
+            ratingControl.rating = session.rating
+        }
+        
         // Set default tide (for 'cancel' button when selecting tide)
         default_tide = ""
         
@@ -149,7 +157,17 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     // MARK: Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        let isPresentingInAddSessionMode = presentingViewController is UINavigationController
+        if isPresentingInAddSessionMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The SessionViewController is not inside a navigation controller.")
+        }
     }
     
     // This method lets you configure a view controller before it's presented.
