@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="428" y="349.47526236881561"/>
         </scene>
-        <!--New Session-->
+        <!--Session View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SessionViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,21 +82,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-1j-tEj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="421"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="379"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xA2-Sk-vC3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="w96-JM-3w5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="sessionDateEditing:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="FT6-CP-a4b"/>
-                                        </connections>
-                                    </textField>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-Ur-UgU" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
-                                        <rect key="frame" x="67.5" y="42" width="240" height="44"/>
+                                        <rect key="frame" x="67.5" y="0.0" width="240" height="44"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="BgP-PY-xki"/>
@@ -104,7 +93,7 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Tide Stage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-6c-4Hs">
-                                        <rect key="frame" x="0.0" y="98" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ebR-ru-JQf"/>
                                         </constraints>
@@ -112,7 +101,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="uCZ-4e-iWE">
-                                        <rect key="frame" x="47" y="140" width="281" height="281"/>
+                                        <rect key="frame" x="47" y="98" width="281" height="281"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uCZ-4e-iWE" secondAttribute="height" multiplier="1:1" id="zdF-zr-1O1"/>
@@ -125,7 +114,7 @@
                                 <constraints>
                                     <constraint firstItem="uCZ-4e-iWE" firstAttribute="top" secondItem="E9Z-6c-4Hs" secondAttribute="bottom" constant="12" id="Lu4-1a-U0K"/>
                                     <constraint firstAttribute="trailing" secondItem="uCZ-4e-iWE" secondAttribute="trailing" constant="47" id="Xvk-Af-kVR"/>
-                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="top" secondItem="xA2-Sk-vC3" secondAttribute="bottom" constant="12" id="exk-lQ-ScF"/>
+                                    <constraint firstItem="lTl-Ur-UgU" firstAttribute="top" secondItem="Biq-1j-tEj" secondAttribute="top" constant="12" id="bkf-g8-lcW"/>
                                     <constraint firstItem="uCZ-4e-iWE" firstAttribute="leading" secondItem="Biq-1j-tEj" secondAttribute="leading" constant="47" id="wu5-HR-Krt"/>
                                 </constraints>
                             </stackView>
@@ -140,12 +129,25 @@
                             <constraint firstItem="Biq-1j-tEj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jyv-Tg-af6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Session" id="8Mn-DL-yME">
+                    <navigationItem key="navigationItem" id="8Mn-DL-yME">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="row-aE-aPb">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="Ndh-Bi-8L2"/>
                             </connections>
                         </barButtonItem>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" id="xA2-Sk-vC3">
+                            <rect key="frame" x="75" y="7" width="239" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="w96-JM-3w5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="sessionDateEditing:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="FT6-CP-a4b"/>
+                            </connections>
+                        </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="wCO-kK-USC">
                             <connections>
                                 <segue destination="mqs-7s-vYc" kind="unwind" unwindAction="unwindToSessionListWithSender:" id="Wxn-OB-Rsg"/>

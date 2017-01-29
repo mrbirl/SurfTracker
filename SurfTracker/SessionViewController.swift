@@ -40,20 +40,32 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             tideTextField.text = session.tide
             sessionPhotoImageView.image = session.photo
             ratingControl.rating = session.rating
+            // Set default tide (for 'cancel' button when selecting tide)
+            default_tide = session.tide
+        }
+        else{
+            
+            default_tide = ""
+            
+            // Set the default time for the session
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.long
+            dateFormatter.timeStyle = .short
+            sessionDateTextField.text = (dateFormatter.string(from: Date()))
         }
         
-        // Set default tide (for 'cancel' button when selecting tide)
-        default_tide = ""
+        // Add date picker for session time/date selection
+        addDatePicker()
         
-        // Set the default time for the session
+        // Add tide picker for session tide
+        addTidePicker()
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        dateFormatter.timeStyle = .short
-        sessionDateTextField.text = (dateFormatter.string(from: Date()))
-        
+    }
+    
+    // MARK: Pickers
+    
+    func addDatePicker(){
         // Datepicker for session date/time
-        
         let dateToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         
         dateToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
@@ -88,9 +100,10 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         dateToolBar.setItems([dateNowBtn,dateFlexSpace,dateTextBtn,dateFlexSpace,dateOkBarBtn], animated: true)
         
         sessionDateTextField.inputAccessoryView = dateToolBar
-        
+    }
+    
+    func addTidePicker(){
         // Picker for Tide
-        
         let tidePickerView = UIPickerView()
         
         tidePickerView.delegate = self
@@ -131,8 +144,9 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         tideToolBar.setItems([tideCancelButton,tideFlexSpace,tideTextBtn,tideFlexSpace,tideDoneButton], animated: true)
         
         tideTextField.inputAccessoryView = tideToolBar
-        
+
     }
+    
     
     // MARK: UIImagePickerControllerDelegate
     
