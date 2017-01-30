@@ -54,8 +54,8 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             sessionDateTextField.text = (dateFormatter.string(from: Date()))
         }
         
-        // Add date picker for session time/date selection
-        addDatePicker()
+        // Add date picker done buttons and styling for session time/date selection
+        styleDatePicker()
         
         // Add tide picker for session tide
         addTidePicker()
@@ -64,8 +64,8 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // MARK: Pickers
     
-    func addDatePicker(){
-        // Datepicker for session date/time
+    func styleDatePicker(){
+        
         let dateToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         
         dateToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
@@ -237,6 +237,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let datePickerView: UIDatePicker = UIDatePicker()
         
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
+        datePickerView.minuteInterval = 15
         
         sender.inputView = datePickerView
         
