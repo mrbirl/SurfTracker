@@ -41,5 +41,9 @@ class SurfTrackerTests: XCTestCase {
         XCTAssertNotNil(noSessionsSpot)
         let noNameSpot = Spot.init(name: "", sessions: [okSession!], msw: ["Area": "Example"], windguru: ["Area": "Example"], photo: nil, notes: "Some notes")
         XCTAssertNil(noNameSpot)
+        
+        // No forecast - should pass
+        let noForecastSpot = Spot.init(name: "Manly", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: "Some notes")
+        XCTAssertNotNil(noForecastSpot)
     }
 }
