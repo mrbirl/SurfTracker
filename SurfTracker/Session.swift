@@ -20,14 +20,21 @@ class Session {
     // MARK: Initialization
     
     init?(time: String, rating: Int, photo: UIImage?, tide: String?) {
+        
+        // The name must not be empty
+        guard !time.isEmpty else {
+            return nil
+        }
+        
+        // The rating must be between 0 and 5 inclusively
+        guard (rating >= 0) && (rating <= 5) else {
+            return nil
+        }
+        
         self.time = time
         self.rating = rating
         self.photo = photo
         self.tide = tide
         
-        // Initialization should fail if there is no time or if the rating is negative.
-        if time.isEmpty || rating < 0 {
-            return nil
-        }
     }
 }

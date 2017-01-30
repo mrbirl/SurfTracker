@@ -11,10 +11,10 @@ import XCTest
 
 class SurfTrackerTests: XCTestCase {
     
-    // MARK: SurfTracker Tests
+    // MARK: Session Class Tests
     
     // Tests to confirm that the Session initializer returns when no time or a negative rating is provided.
-    func testMealInitialization() {
+    func testSessionInitialization() {
         
         // Success case.
         let potentialItem = Session(time: "October 8, 2016 at 5:28PM", rating: 5, photo: nil, tide: nil)
@@ -25,7 +25,21 @@ class SurfTrackerTests: XCTestCase {
         XCTAssertNil(noTime, "Empty time is invalid")
         
         let badRating = Session(time: "October 8, 2016 at 5:28PM", rating: -1, photo: nil, tide: nil)
-        XCTAssertNotNil(badRating)
+        XCTAssertNil(badRating)
         
+    }
+    
+    // MARK: Spot Class Tests
+    
+    func testSpotInitialization(){
+        // No sessions - should pass
+        let noSessionsSpot = Spot.init(name: "Manly", sessions: nil, msw: ["Area": "Example"], windguru: ["Area": "Example"], photo: nil, notes: "Some notes")
+        XCTAssertNotNil(noSessionsSpot)
+        
+        // No name - should fail
+        let okSession = Session(time: "October 8, 2016 at 5:28PM", rating: 5, photo: nil, tide: nil)
+        XCTAssertNotNil(noSessionsSpot)
+        let noNameSpot = Spot.init(name: "", sessions: [okSession!], msw: ["Area": "Example"], windguru: ["Area": "Example"], photo: nil, notes: "Some notes")
+        XCTAssertNil(noNameSpot)
     }
 }
