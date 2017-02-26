@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hPF-U5-yhT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ODw-Hr-3Mj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -67,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PL2-BC-nNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="349.47526236881561"/>
+            <point key="canvasLocation" x="1367.2" y="349.47526236881561"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -170,9 +170,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2264.8000000000002" y="348.57571214392806"/>
+            <point key="canvasLocation" x="3204" y="348.57571214392806"/>
         </scene>
-        <!--Spot Table View Controller-->
+        <!--Your Spots-->
         <scene sceneID="bor-iV-qh6">
             <objects>
                 <tableViewController id="hPF-U5-yhT" customClass="SpotTableViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -212,10 +212,11 @@
                             <outlet property="delegate" destination="hPF-U5-yhT" id="oD0-KV-0Yr"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Spots" id="HPV-z1-5cs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vaa-Pq-fPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1346.4000000000001" y="345.87706146926541"/>
+            <point key="canvasLocation" x="-407.19999999999999" y="345.87706146926541"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P6m-kB-jfN">
@@ -233,7 +234,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sze-iL-Wej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-511.19999999999999" y="349.47526236881561"/>
+            <point key="canvasLocation" x="428" y="349.47526236881561"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pYa-am-cLg">
@@ -251,7 +252,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AX-Bj-S4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359" y="704"/>
+            <point key="canvasLocation" x="2296.8000000000002" y="703.89805097451278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b4h-Rz-kQB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ODw-Hr-3Mj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VK6-cB-s9K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hPF-U5-yhT" kind="relationship" relationship="rootViewController" id="iPc-b0-v9r"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8QA-J9-NME" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1346.4000000000001" y="345.87706146926541"/>
         </scene>
     </scenes>
     <resources>
