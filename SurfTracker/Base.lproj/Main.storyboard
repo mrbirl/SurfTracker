@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ODw-Hr-3Mj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ODw-Hr-3Mj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NpL-Ed-ewC" id="aMF-pt-1MW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="XFs-Os-Ash">
@@ -67,7 +67,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PL2-BC-nNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367.2" y="349.47526236881561"/>
+            <point key="canvasLocation" x="2103" y="346"/>
+        </scene>
+        <!--Session View Controller-->
+        <scene sceneID="mcV-NF-dIX">
+            <objects>
+                <viewController id="Cwc-YC-Rfu" customClass="SessionViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GWp-6j-pdp"/>
+                        <viewControllerLayoutGuide type="bottom" id="7uQ-0M-6Ck"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TES-Rk-mqx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RlJ-tZ-0du" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921" y="1110"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -85,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="379"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-Ur-UgU" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
-                                        <rect key="frame" x="68" y="0.0" width="240" height="44"/>
+                                        <rect key="frame" x="67.5" y="0.0" width="240" height="44"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="BgP-PY-xki"/>
@@ -170,7 +188,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3204" y="348.57571214392806"/>
+            <point key="canvasLocation" x="3910" y="349"/>
         </scene>
         <!--Your Spots-->
         <scene sceneID="bor-iV-qh6">
@@ -185,7 +203,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RWr-ck-N3O" id="xI5-j2-RrY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultSpotPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="U8d-DA-XB4">
@@ -212,11 +230,17 @@
                             <outlet property="delegate" destination="hPF-U5-yhT" id="oD0-KV-0Yr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Spots" id="HPV-z1-5cs"/>
+                    <navigationItem key="navigationItem" title="Your Spots" id="HPV-z1-5cs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="T0i-Th-CPt">
+                            <connections>
+                                <segue destination="Cwc-YC-Rfu" kind="show" id="fMU-WM-Uiz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vaa-Pq-fPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407.19999999999999" y="345.87706146926541"/>
+            <point key="canvasLocation" x="486" y="346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P6m-kB-jfN">
@@ -234,7 +258,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sze-iL-Wej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="428" y="349.47526236881561"/>
+            <point key="canvasLocation" x="1356" y="346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pYa-am-cLg">
@@ -252,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AX-Bj-S4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296.8000000000002" y="703.89805097451278"/>
+            <point key="canvasLocation" x="3028" y="734"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4h-Rz-kQB">
@@ -270,7 +294,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QA-J9-NME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1346.4000000000001" y="345.87706146926541"/>
+            <point key="canvasLocation" x="-370" y="349"/>
         </scene>
     </scenes>
     <resources>

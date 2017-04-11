@@ -18,6 +18,7 @@
 		8594E6271D98085600C9ED42 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E6261D98085600C9ED42 /* Session.swift */; };
 		8594E6291D980FE300C9ED42 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */; };
 		8594E62B1D98462700C9ED42 /* SessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */; };
+		85B343B01E9CE78F0002FC58 /* SpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B343AF1E9CE78F0002FC58 /* SpotViewController.swift */; };
 		85B7773D1E3F20D80063C3D4 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7773C1E3F20D80063C3D4 /* Spot.swift */; };
 		85B7773F1E40756C0063C3D4 /* SpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */; };
 		85C2E3981D70995900A27D46 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2E3971D70995900A27D46 /* RatingControl.swift */; };
@@ -50,6 +51,7 @@
 		8594E6261D98085600C9ED42 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewController.swift; sourceTree = "<group>"; };
+		85B343AF1E9CE78F0002FC58 /* SpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewController.swift; sourceTree = "<group>"; };
 		85B7773C1E3F20D80063C3D4 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTableViewCell.swift; sourceTree = "<group>"; };
 		85C2E3971D70995900A27D46 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
@@ -97,14 +99,15 @@
 			isa = PBXGroup;
 			children = (
 				855ACE301D5B4F56006E9F19 /* AppDelegate.swift */,
-				855ACE321D5B4F56006E9F19 /* SessionViewController.swift */,
 				855ACE341D5B4F56006E9F19 /* Main.storyboard */,
-				85B7773C1E3F20D80063C3D4 /* Spot.swift */,
-				85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */,
-				85E4BB701E47282F0019997A /* SpotTableViewController.swift */,
-				8594E6261D98085600C9ED42 /* Session.swift */,
-				8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */,
+				855ACE321D5B4F56006E9F19 /* SessionViewController.swift */,
 				8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */,
+				8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */,
+				85B343AF1E9CE78F0002FC58 /* SpotViewController.swift */,
+				85E4BB701E47282F0019997A /* SpotTableViewController.swift */,
+				85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */,
+				85B7773C1E3F20D80063C3D4 /* Spot.swift */,
+				8594E6261D98085600C9ED42 /* Session.swift */,
 				85C2E3971D70995900A27D46 /* RatingControl.swift */,
 				855ACE3A1D5B4F56006E9F19 /* Assets.xcassets */,
 				855ACE3C1D5B4F56006E9F19 /* LaunchScreen.storyboard */,
@@ -229,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85B343B01E9CE78F0002FC58 /* SpotViewController.swift in Sources */,
 				8594E6291D980FE300C9ED42 /* SessionTableViewCell.swift in Sources */,
 				85E4BB711E47282F0019997A /* SpotTableViewController.swift in Sources */,
 				8594E62B1D98462700C9ED42 /* SessionTableViewController.swift in Sources */,
