@@ -82,10 +82,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Atf-j1-22o">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dEf-4t-uU8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FDj-QZ-M9V"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlJ-tZ-0du" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="1110"/>
+            <point key="canvasLocation" x="1356" y="1139"/>
         </scene>
         <!--Session View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -188,7 +192,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3910" y="349"/>
+            <point key="canvasLocation" x="3697" y="349"/>
         </scene>
         <!--Your Spots-->
         <scene sceneID="bor-iV-qh6">
@@ -233,7 +237,7 @@
                     <navigationItem key="navigationItem" title="Your Spots" id="HPV-z1-5cs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="T0i-Th-CPt">
                             <connections>
-                                <segue destination="Cwc-YC-Rfu" kind="show" id="fMU-WM-Uiz"/>
+                                <segue destination="hjz-R3-Dtx" kind="presentation" identifier="AddSpot" id="fMU-WM-Uiz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -276,7 +280,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AX-Bj-S4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3028" y="734"/>
+            <point key="canvasLocation" x="2910" y="777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4h-Rz-kQB">
@@ -295,6 +299,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QA-J9-NME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-370" y="349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="76M-ip-Eli">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hjz-R3-Dtx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jCF-y6-3Yw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Cwc-YC-Rfu" kind="relationship" relationship="rootViewController" id="6vE-6v-ADj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xL1-3A-DG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="1139"/>
         </scene>
     </scenes>
     <resources>
