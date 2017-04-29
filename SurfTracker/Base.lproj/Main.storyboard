@@ -105,9 +105,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultSpotPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="9Cz-zL-Sbv">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultSpotPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="9Cz-zL-Sbv">
                                 <rect key="frame" x="27" y="173" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Wag-Lj-RcI" appends="YES" id="SpS-pQ-12v"/>
+                                </connections>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter spot notes here - things you may want to remember, such as location." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8j1-G0-F0b">
                                 <rect key="frame" x="27" y="539" width="320" height="108"/>
@@ -139,8 +143,16 @@
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FDj-QZ-M9V"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="spotPhotoImageView" destination="9Cz-zL-Sbv" id="6ml-js-l0I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlJ-tZ-0du" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Wag-Lj-RcI">
+                    <connections>
+                        <action selector="selectSpotImageFromPhotoLibrary:" destination="Cwc-YC-Rfu" id="CIb-HK-ieQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1356" y="1138.3808095952024"/>
         </scene>
