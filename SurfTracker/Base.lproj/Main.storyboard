@@ -138,12 +138,16 @@
                             <rect key="frame" x="95.5" y="7" width="184" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                            <connections>
+                                <action selector="textField:" destination="Cwc-YC-Rfu" eventType="editingDidEndOnExit" id="eVB-Ld-jsR"/>
+                            </connections>
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FDj-QZ-M9V"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="spotNameTextField" destination="zgE-Zn-Ugw" id="qsb-Hc-LBY"/>
                         <outlet property="spotPhotoImageView" destination="9Cz-zL-Sbv" id="6ml-js-l0I"/>
                     </connections>
                 </viewController>
@@ -217,7 +221,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Mn-DL-yME">
-                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="row-aE-aPb">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="Ndh-Bi-8L2"/>

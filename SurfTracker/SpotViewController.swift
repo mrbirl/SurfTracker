@@ -11,6 +11,7 @@ import UIKit
 class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
+    @IBOutlet weak var spotNameTextField: UITextField!
     @IBOutlet weak var spotPhotoImageView: UIImageView!
     
     // MARK: Navigation
@@ -48,11 +49,13 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    
+    @IBAction func textField(_ sender: AnyObject) {
+        self.view.endEditing(true);
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
