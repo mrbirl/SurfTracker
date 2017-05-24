@@ -24,6 +24,8 @@
 		85B7773F1E40756C0063C3D4 /* SpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */; };
 		85C2E3981D70995900A27D46 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2E3971D70995900A27D46 /* RatingControl.swift */; };
 		85E4BB711E47282F0019997A /* SpotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E4BB701E47282F0019997A /* SpotTableViewController.swift */; };
+		B971AA51956141CEFE456754 /* Pods_SurfTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA6E27C0C9A4EEC2C21C45C /* Pods_SurfTrackerTests.framework */; };
+		C5203A685D7B84D618C2B65F /* Pods_SurfTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6E5AD069703D2EC3E375AD /* Pods_SurfTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E6E5AD069703D2EC3E375AD /* Pods_SurfTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurfTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44C4C054F6A78023B7B90361 /* Pods-SurfTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTracker/Pods-SurfTracker.release.xcconfig"; sourceTree = "<group>"; };
+		7FA6E27C0C9A4EEC2C21C45C /* Pods_SurfTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurfTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		855ACE2D1D5B4F56006E9F19 /* SurfTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		855ACE301D5B4F56006E9F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		855ACE321D5B4F56006E9F19 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +63,9 @@
 		85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTableViewCell.swift; sourceTree = "<group>"; };
 		85C2E3971D70995900A27D46 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		85E4BB701E47282F0019997A /* SpotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTableViewController.swift; sourceTree = "<group>"; };
+		8DE60190242E6B9FF1B6510C /* Pods-SurfTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTrackerTests/Pods-SurfTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CAD4AC04BAA34601CB36D620 /* Pods-SurfTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTracker/Pods-SurfTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		E63EAC7F11C6107AFACC8CEC /* Pods-SurfTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTrackerTests/Pods-SurfTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5203A685D7B84D618C2B65F /* Pods_SurfTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +81,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B971AA51956141CEFE456754 /* Pods_SurfTrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B056E074B259854CB54FF80 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CAD4AC04BAA34601CB36D620 /* Pods-SurfTracker.debug.xcconfig */,
+				44C4C054F6A78023B7B90361 /* Pods-SurfTracker.release.xcconfig */,
+				8DE60190242E6B9FF1B6510C /* Pods-SurfTrackerTests.debug.xcconfig */,
+				E63EAC7F11C6107AFACC8CEC /* Pods-SurfTrackerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7D699C1445CC886E290BB03B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E6E5AD069703D2EC3E375AD /* Pods_SurfTracker.framework */,
+				7FA6E27C0C9A4EEC2C21C45C /* Pods_SurfTrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		855ACE241D5B4F56006E9F19 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +116,8 @@
 				855ACE2F1D5B4F56006E9F19 /* SurfTracker */,
 				855ACE471D5B4F56006E9F19 /* SurfTrackerTests */,
 				855ACE2E1D5B4F56006E9F19 /* Products */,
+				6B056E074B259854CB54FF80 /* Pods */,
+				7D699C1445CC886E290BB03B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 855ACE4D1D5B4F56006E9F19 /* Build configuration list for PBXNativeTarget "SurfTracker" */;
 			buildPhases = (
+				2C1F74103F8A94DCC9F0F0F1 /* [CP] Check Pods Manifest.lock */,
 				855ACE291D5B4F56006E9F19 /* Sources */,
 				855ACE2A1D5B4F56006E9F19 /* Frameworks */,
 				855ACE2B1D5B4F56006E9F19 /* Resources */,
+				C1356DE8A9D5915F90817B61 /* [CP] Embed Pods Frameworks */,
+				CBFE2F976C2F6FA888E7CAD9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,9 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 855ACE501D5B4F56006E9F19 /* Build configuration list for PBXNativeTarget "SurfTrackerTests" */;
 			buildPhases = (
+				DB6E4DDAC319C396D570BD1A /* [CP] Check Pods Manifest.lock */,
 				855ACE401D5B4F56006E9F19 /* Sources */,
 				855ACE411D5B4F56006E9F19 /* Frameworks */,
 				855ACE421D5B4F56006E9F19 /* Resources */,
+				79D0F5DE57007636E844DA8E /* [CP] Embed Pods Frameworks */,
+				B5F85474509EE05C0AD901D7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,6 +268,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C1F74103F8A94DCC9F0F0F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		79D0F5DE57007636E844DA8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SurfTrackerTests/Pods-SurfTrackerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5F85474509EE05C0AD901D7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SurfTrackerTests/Pods-SurfTrackerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1356DE8A9D5915F90817B61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SurfTracker/Pods-SurfTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBFE2F976C2F6FA888E7CAD9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SurfTracker/Pods-SurfTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB6E4DDAC319C396D570BD1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		855ACE291D5B4F56006E9F19 /* Sources */ = {
@@ -380,6 +511,7 @@
 		};
 		855ACE4E1D5B4F56006E9F19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAD4AC04BAA34601CB36D620 /* Pods-SurfTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SurfTracker/Info.plist;
@@ -392,6 +524,7 @@
 		};
 		855ACE4F1D5B4F56006E9F19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44C4C054F6A78023B7B90361 /* Pods-SurfTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SurfTracker/Info.plist;
@@ -404,6 +537,7 @@
 		};
 		855ACE511D5B4F56006E9F19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DE60190242E6B9FF1B6510C /* Pods-SurfTrackerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SurfTrackerTests/Info.plist;
@@ -417,6 +551,7 @@
 		};
 		855ACE521D5B4F56006E9F19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E63EAC7F11C6107AFACC8CEC /* Pods-SurfTrackerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SurfTrackerTests/Info.plist;
