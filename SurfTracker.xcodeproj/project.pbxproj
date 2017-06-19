@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85421B281EF7E82800A2C693 /* RegionSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B271EF7E82800A2C693 /* RegionSelectionTableViewController.swift */; };
+		85421B2A1EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B291EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift */; };
+		85421B2C1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B2B1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift */; };
 		855ACE311D5B4F56006E9F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE301D5B4F56006E9F19 /* AppDelegate.swift */; };
 		855ACE331D5B4F56006E9F19 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE321D5B4F56006E9F19 /* SessionViewController.swift */; };
 		855ACE361D5B4F56006E9F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE341D5B4F56006E9F19 /* Main.storyboard */; };
@@ -42,6 +45,9 @@
 		1E6E5AD069703D2EC3E375AD /* Pods_SurfTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurfTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44C4C054F6A78023B7B90361 /* Pods-SurfTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTracker/Pods-SurfTracker.release.xcconfig"; sourceTree = "<group>"; };
 		7FA6E27C0C9A4EEC2C21C45C /* Pods_SurfTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SurfTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85421B271EF7E82800A2C693 /* RegionSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectionTableViewController.swift; sourceTree = "<group>"; };
+		85421B291EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaSelectionTableViewController.swift; sourceTree = "<group>"; };
+		85421B2B1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotSelectionTableViewController.swift; sourceTree = "<group>"; };
 		855ACE2D1D5B4F56006E9F19 /* SurfTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		855ACE301D5B4F56006E9F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		855ACE321D5B4F56006E9F19 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +147,9 @@
 				85B343AF1E9CE78F0002FC58 /* SpotViewController.swift */,
 				85E4BB701E47282F0019997A /* SpotTableViewController.swift */,
 				85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */,
+				85421B271EF7E82800A2C693 /* RegionSelectionTableViewController.swift */,
+				85421B291EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift */,
+				85421B2B1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift */,
 				85B7773C1E3F20D80063C3D4 /* Spot.swift */,
 				8594E6261D98085600C9ED42 /* Session.swift */,
 				85C2E3971D70995900A27D46 /* RatingControl.swift */,
@@ -367,7 +376,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85421B281EF7E82800A2C693 /* RegionSelectionTableViewController.swift in Sources */,
 				85B343B01E9CE78F0002FC58 /* SpotViewController.swift in Sources */,
+				85421B2C1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift in Sources */,
 				8594E6291D980FE300C9ED42 /* SessionTableViewCell.swift in Sources */,
 				85E4BB711E47282F0019997A /* SpotTableViewController.swift in Sources */,
 				8594E62B1D98462700C9ED42 /* SessionTableViewController.swift in Sources */,
@@ -377,6 +388,7 @@
 				855ACE331D5B4F56006E9F19 /* SessionViewController.swift in Sources */,
 				85B7773F1E40756C0063C3D4 /* SpotTableViewCell.swift in Sources */,
 				855ACE391D5B4F56006E9F19 /* SurfTracker.xcdatamodeld in Sources */,
+				85421B2A1EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift in Sources */,
 				855ACE311D5B4F56006E9F19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
