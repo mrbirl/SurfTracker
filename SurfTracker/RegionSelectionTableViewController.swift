@@ -9,6 +9,8 @@
 import UIKit
 
 class RegionSelectionTableViewController: UITableViewController {
+    
+    let windguru = Windguru()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,24 +30,22 @@ class RegionSelectionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return windguru.region.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RegionSelectionCell", for: indexPath)
+        let row = indexPath.row
+        cell.textLabel?.text = windguru.region[row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,14 +82,17 @@ class RegionSelectionTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AreaSelections"{
+            let target = segue.destination as! AreaSelectionTableViewController
+            let selectedRegion = windguru.region[(tableView.indexPathForSelectedRow?.row)!]
+            target.region = selectedRegion
+            target.navigationItem.title = selectedRegion
+        }
     }
-    */
+ 
 
 }
