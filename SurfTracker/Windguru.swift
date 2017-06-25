@@ -71,7 +71,7 @@ class Windguru: NSObject {
         "Capbreton":"/Capbreton-La-Piste-VVF-Surf-Report/883/"
     ]
     
-    //linear search for all food with a given meal
+    // Get URL for a spot
     func info(spot:String) -> String {
         return infoList[spot]!
     }

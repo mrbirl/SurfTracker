@@ -11,7 +11,7 @@ import UIKit
 class AreaSelectionTableViewController: UITableViewController {
     
     let windguru = Windguru()
-    var region = "Europe"
+    var region = ""
     var areas = [String]()
 
     override func viewDidLoad() {

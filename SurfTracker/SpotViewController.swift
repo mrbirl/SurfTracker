@@ -13,8 +13,32 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     // MARK: Properties
     @IBOutlet weak var spotNameTextField: UITextField!
     @IBOutlet weak var spotPhotoImageView: UIImageView!
+    @IBOutlet weak var windSpotName: UILabel!
+    @IBOutlet weak var windSpotURL: UILabel!
+    @IBOutlet weak var magicSpotName: UILabel!
+    @IBOutlet weak var magicSpotURL: UILabel!
     
-    // MARK: Navigation
+    var spotName: String?
+    var spotURL: String?
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        if spotName != nil {
+            windSpotName.text = spotName
+        }
+        if spotURL != nil{
+            windSpotURL.text = spotURL
+        }
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
     
     // MARK: UIImagePickerControllerDelegate
     
@@ -53,17 +77,6 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         self.view.endEditing(true);
     }
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
