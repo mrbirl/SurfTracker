@@ -44,7 +44,6 @@ class Windguru: NSObject {
         "90 Mile Beach":"New Zealand",
         "Raglan":"New Zealand",
         "Lahinch":"Ireland",
-        "Doolin":"Ireland",
         "Hossegor":"France",
         "Capbreton":"France"
     ]

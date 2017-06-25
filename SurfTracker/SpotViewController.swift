@@ -18,18 +18,25 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var magicSpotName: UILabel!
     @IBOutlet weak var magicSpotURL: UILabel!
     
-    var spotName: String?
-    var spotURL: String?
-    
+    var spot: Spot?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        if spotName != nil {
-            windSpotName.text = spotName
+        
+        // Spot was passed in, so load data from this spot
+        if let spot = spot {
+            spotNameTextField.text = spot.name
+            windSpotName.text = spot.windguru[0]
+            windSpotURL.text = spot.windguru[1]
         }
-        if spotURL != nil{
-            windSpotURL.text = spotURL
+        else{
+            /*
+             No existing spot data to prefill any fields
+             Set any default values needed
+             Create spot.
+            */
+            // Spot needs a name, if it's nil or empty string initialisation fails. This should probably be reworked.
+            spot = Spot(name: "Example Spot", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: nil)
         }
         
     }
@@ -78,14 +85,16 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "RegionSelections"{
+            let target = segue.destination as! RegionSelectionTableViewController
+            target.spot = spot
+        }
     }
-    */
+    
 
 }

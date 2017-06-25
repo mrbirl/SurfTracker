@@ -11,6 +11,7 @@ import UIKit
 class RegionSelectionTableViewController: UITableViewController {
     
     let windguru = Windguru()
+    var spot: Spot?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +92,7 @@ class RegionSelectionTableViewController: UITableViewController {
             let selectedRegion = windguru.region[(tableView.indexPathForSelectedRow?.row)!]
             target.region = selectedRegion
             target.navigationItem.title = selectedRegion
+            target.spot = spot
         }
     }
  

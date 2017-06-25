@@ -13,6 +13,7 @@ class SpotSelectionTableViewController: UITableViewController {
     let windguru = Windguru()
     var area = ""
     var spots = [String]()
+    var spot: Spot?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +51,9 @@ class SpotSelectionTableViewController: UITableViewController {
         if segue.identifier == "ForecastDetails"{
             let target = segue.destination as! SpotViewController
             let selectedSpot = spots[(tableView.indexPathForSelectedRow?.row)!]
-            target.spotName = selectedSpot
             let url = windguru.info(spot: selectedSpot)
-            target.spotURL = url
+            spot?.windguru = [selectedSpot, url] // Don't appent, we want these to be only values in this array
+            target.spot = spot
         }
         
     }

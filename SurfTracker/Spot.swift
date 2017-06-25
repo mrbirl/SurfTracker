@@ -15,15 +15,15 @@ class Spot {
     var name: String
     var sessions = [Session]()
     var msw = [String: String]()
-    var windguru = [String: String]()
+    var windguru = [String]()
     var photo: UIImage?
     var notes: String?
     
     //MARK: Initialization
     
-    init?(name: String, sessions: [Session]?, msw: [String: String]?, windguru: [String: String]?, photo: UIImage?, notes: String?) {
+    init?(name: String, sessions: [Session]?, msw: [String: String]?, windguru: [String]?, photo: UIImage?, notes: String?) {
         
-        // Initialization should fail if there is no name.
+        // Initialization fails if there is no name.
         if name.isEmpty {
             return nil
         }

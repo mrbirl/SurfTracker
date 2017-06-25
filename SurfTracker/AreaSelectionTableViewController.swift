@@ -13,6 +13,7 @@ class AreaSelectionTableViewController: UITableViewController {
     let windguru = Windguru()
     var region = ""
     var areas = [String]()
+    var spot: Spot?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class AreaSelectionTableViewController: UITableViewController {
             let selectedArea = areas[(tableView.indexPathForSelectedRow?.row)!]
             target.area = selectedArea
             target.navigationItem.title = selectedArea
+            target.spot = spot
         }
     }
     

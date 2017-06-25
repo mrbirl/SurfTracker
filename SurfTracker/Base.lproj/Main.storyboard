@@ -116,7 +116,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select WindGuru Forecast"/>
                                 <connections>
-                                    <segue destination="cxe-4G-3JL" kind="show" id="i8Y-cc-B37"/>
+                                    <segue destination="cxe-4G-3JL" kind="show" identifier="RegionSelections" id="i8Y-cc-B37"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ier-QW-jS1">
