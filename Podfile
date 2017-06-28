@@ -6,6 +6,7 @@ target 'SurfTracker' do
   use_frameworks!
 
   # Pods for SurfTracker
+  pod 'SwiftyJSON'
 
   target 'SurfTrackerTests' do
     inherit! :search_paths

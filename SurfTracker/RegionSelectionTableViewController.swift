@@ -88,6 +88,7 @@ class RegionSelectionTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AreaSelections"{
+            windguru.loadJson()
             let target = segue.destination as! AreaSelectionTableViewController
             let selectedRegion = windguru.region[(tableView.indexPathForSelectedRow?.row)!]
             target.region = selectedRegion

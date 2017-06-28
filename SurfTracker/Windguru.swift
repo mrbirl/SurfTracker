@@ -9,8 +9,32 @@
 // Windguru Forecast Hierarchy Model
 
 import UIKit
+import SwiftyJSON
 
 class Windguru: NSObject {
+
+    
+    func loadJson() {
+        if let path = Bundle.main.path(forResource: "windguru_spots", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                let jsonObj = JSON(data: data)
+                if jsonObj != JSON.null {
+                    
+                    var jsonDict = jsonObj["Europe"]["Ireland"]["Lahinch"]
+                    print(jsonDict)
+                    
+                } else {
+                    print("Could not get json from file, make sure that file contains valid json.")
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        } else {
+            print("Invalid filename/path.")
+        }
+    }
+
     
     // MARK: Region
     var region:[String] = [
