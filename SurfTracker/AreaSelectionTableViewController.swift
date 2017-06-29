@@ -11,13 +11,12 @@ import UIKit
 class AreaSelectionTableViewController: UITableViewController {
     
     let windguru = Windguru()
-    var region = ""
+    var region = String()
     var areas = [String]()
     var spot: Spot?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        areas = windguru.areas(region: region)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +47,9 @@ class AreaSelectionTableViewController: UITableViewController {
         if segue.identifier == "SpotSelections"{
             let target = segue.destination as! SpotSelectionTableViewController
             let selectedArea = areas[(tableView.indexPathForSelectedRow?.row)!]
+            target.region = region
             target.area = selectedArea
+            target.spots = windguru.getSpots(region: region, area: selectedArea)
             target.navigationItem.title = selectedArea
             target.spot = spot
         }

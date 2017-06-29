@@ -10,12 +10,15 @@ import UIKit
 
 class RegionSelectionTableViewController: UITableViewController {
     
-    let windguru = Windguru()
+    var windguru: Windguru?
+    var regions: [String] = []
     var spot: Spot?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        windguru = Windguru()
+        regions = (windguru?.getRegions())!
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,14 +38,14 @@ class RegionSelectionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return windguru.region.count
+        return regions.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegionSelectionCell", for: indexPath)
         let row = indexPath.row
-        cell.textLabel?.text = windguru.region[row]
+        cell.textLabel?.text = regions[row]
 
         return cell
     }
@@ -88,10 +91,10 @@ class RegionSelectionTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AreaSelections"{
-            windguru.loadJson()
             let target = segue.destination as! AreaSelectionTableViewController
-            let selectedRegion = windguru.region[(tableView.indexPathForSelectedRow?.row)!]
+            let selectedRegion = regions[(tableView.indexPathForSelectedRow?.row)!]
             target.region = selectedRegion
+            target.areas = (windguru?.getAreas(region: selectedRegion))!
             target.navigationItem.title = selectedRegion
             target.spot = spot
         }
