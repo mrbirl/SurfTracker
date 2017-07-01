@@ -49,7 +49,8 @@ class AreaSelectionTableViewController: UITableViewController {
             let selectedArea = areas[(tableView.indexPathForSelectedRow?.row)!]
             target.region = region
             target.area = selectedArea
-            target.spots = windguru.getSpots(region: region, area: selectedArea)
+            let unsortedSpots = windguru.getSpots(region: region, area: selectedArea)
+            target.spots = unsortedSpots.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
             target.navigationItem.title = selectedArea
             target.spot = spot
         }

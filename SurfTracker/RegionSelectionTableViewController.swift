@@ -17,7 +17,8 @@ class RegionSelectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         windguru = Windguru()
-        regions = (windguru?.getRegions())!
+        let unsortedRegions = (windguru?.getRegions())!
+        regions = unsortedRegions.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -94,7 +95,8 @@ class RegionSelectionTableViewController: UITableViewController {
             let target = segue.destination as! AreaSelectionTableViewController
             let selectedRegion = regions[(tableView.indexPathForSelectedRow?.row)!]
             target.region = selectedRegion
-            target.areas = (windguru?.getAreas(region: selectedRegion))!
+            let unsortedAreas = (windguru?.getAreas(region: selectedRegion))!
+            target.areas = unsortedAreas.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
             target.navigationItem.title = selectedRegion
             target.spot = spot
         }
