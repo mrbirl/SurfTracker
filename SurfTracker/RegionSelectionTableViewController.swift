@@ -99,6 +99,7 @@ class RegionSelectionTableViewController: UITableViewController {
             target.areas = unsortedAreas.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
             target.navigationItem.title = selectedRegion
             target.spot = spot
+            target.windguru = windguru
         }
     }
  

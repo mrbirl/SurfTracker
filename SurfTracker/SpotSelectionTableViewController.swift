@@ -10,7 +10,7 @@ import UIKit
 
 class SpotSelectionTableViewController: UITableViewController {
     
-    let windguru = Windguru()
+    var windguru: Windguru?
     var region = String()
     var area = String()
     var spots = [String]()
@@ -51,8 +51,8 @@ class SpotSelectionTableViewController: UITableViewController {
         if segue.identifier == "ForecastDetails"{
             let target = segue.destination as! SpotViewController
             let selectedSpot = spots[(tableView.indexPathForSelectedRow?.row)!]
-            let url = windguru.getInfo(region: region, area: area, spot: selectedSpot)
-            spot?.windguru = [selectedSpot, url] // Don't appent, we want these to be only values in this array
+            let url = windguru?.getInfo(region: region, area: area, spot: selectedSpot)
+            spot?.windguru = [selectedSpot, url!] // Don't appent, we want these to be only values in this array
             target.spot = spot
         }
         

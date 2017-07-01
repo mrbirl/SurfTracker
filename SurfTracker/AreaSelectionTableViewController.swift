@@ -10,7 +10,7 @@ import UIKit
 
 class AreaSelectionTableViewController: UITableViewController {
     
-    let windguru = Windguru()
+    var windguru: Windguru?
     var region = String()
     var areas = [String]()
     var spot: Spot?
@@ -49,10 +49,11 @@ class AreaSelectionTableViewController: UITableViewController {
             let selectedArea = areas[(tableView.indexPathForSelectedRow?.row)!]
             target.region = region
             target.area = selectedArea
-            let unsortedSpots = windguru.getSpots(region: region, area: selectedArea)
-            target.spots = unsortedSpots.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+            let unsortedSpots = windguru?.getSpots(region: region, area: selectedArea)
+            target.spots = (unsortedSpots?.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })!
             target.navigationItem.title = selectedArea
             target.spot = spot
+            target.windguru = windguru
         }
     }
     
