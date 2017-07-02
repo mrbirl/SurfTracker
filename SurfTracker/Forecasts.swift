@@ -22,7 +22,7 @@ class Forecasts {
     }
     
     func loadJson() -> JSON {
-        if let path = Bundle.main.path(forResource: "windguru", ofType: "json") {
+        if let path = Bundle.main.path(forResource: forecastName, ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = JSON(data: data)

@@ -26,8 +26,15 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Spot was passed in, so load data from this spot
         if let spot = spot {
             spotNameTextField.text = spot.name
-            windSpotName.text = spot.windguru[0]
-            windSpotURL.text = spot.windguru[1]
+            if spot.windguru != nil{
+                windSpotName.text = spot.windguru?[0]
+                windSpotURL.text = spot.windguru?[1]
+            }
+            if spot.msw != nil{
+                magicSpotName.text = spot.msw?[0]
+                magicSpotURL.text = spot.msw?[1]
+            }
+            
         }
         else{
             /*
@@ -90,10 +97,15 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "RegionSelections"{
-            let target = segue.destination as! RegionSelectionTableViewController
-            target.spot = spot
+        
+        let target = segue.destination as! RegionSelectionTableViewController
+        target.spot = spot
+        
+        if segue.identifier == "WindguruSelections"{
             target.selectedForecast = "windguru"
+        }
+        if segue.identifier == "MagicseaweedSelections"{
+            target.selectedForecast = "magicseaweed"
         }
     }
     

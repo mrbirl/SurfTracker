@@ -13,15 +13,15 @@ class Spot {
     // MARK: Properties
     
     var name: String
-    var sessions = [Session]()
-    var msw = [String: String]()
-    var windguru = [String]()
+    var sessions: [Session]?
+    var msw: [String]?
+    var windguru: [String]?
     var photo: UIImage?
     var notes: String?
     
     //MARK: Initialization
     
-    init?(name: String, sessions: [Session]?, msw: [String: String]?, windguru: [String]?, photo: UIImage?, notes: String?) {
+    init?(name: String, sessions: [Session]?, msw: [String]?, windguru: [String]?, photo: UIImage?, notes: String?) {
         
         // Initialization fails if there is no name.
         if name.isEmpty {

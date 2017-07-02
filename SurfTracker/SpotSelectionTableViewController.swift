@@ -52,7 +52,15 @@ class SpotSelectionTableViewController: UITableViewController {
             let target = segue.destination as! SpotViewController
             let selectedSpot = spots[(tableView.indexPathForSelectedRow?.row)!]
             let url = forecasts?.getInfo(region: region, area: area, spot: selectedSpot)
-            spot?.windguru = [selectedSpot, url!] // Don't appent, we want these to be only values in this array
+            
+            switch forecasts?.forecastName {
+                case "windguru"?:
+                    spot?.windguru = [selectedSpot, url!] // Don't appent, we want these to be only values in this array
+                case "magicseaweed"?:
+                    spot?.msw = [selectedSpot, url!]
+                default:
+                    print("Error passing forecast info: not a valid forecast name")
+            }
             target.spot = spot
         }
         

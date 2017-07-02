@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ODw-Hr-3Mj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ODw-Hr-3Mj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -116,13 +116,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select WindGuru Forecast"/>
                                 <connections>
-                                    <segue destination="cxe-4G-3JL" kind="show" identifier="RegionSelections" id="i8Y-cc-B37"/>
+                                    <segue destination="cxe-4G-3JL" kind="show" identifier="WindguruSelections" id="i8Y-cc-B37"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ier-QW-jS1">
                                 <rect key="frame" x="27" y="118" width="205" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Magicseaweed Forcast"/>
+                                <connections>
+                                    <segue destination="cxe-4G-3JL" kind="show" identifier="MagicseaweedSelections" id="W4y-Lw-GA8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da8-ZM-ihY">
                                 <rect key="frame" x="198" y="89" width="142" height="21"/>
@@ -506,6 +509,7 @@
         <image name="defaultSpotPhoto" width="768" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="W4y-Lw-GA8"/>
         <segue reference="WUS-i7-LU7"/>
         <segue reference="6FO-l6-DRn"/>
     </inferredMetricsTieBreakers>
