@@ -11,16 +11,18 @@
 import UIKit
 import SwiftyJSON
 
-class Windguru {
+class Forecasts {
     
+    var forecastName: String
     var json: JSON = [:]
     
-    init(){
+    init(forecast: String){
+        forecastName = forecast
         json = loadJson()
     }
     
     func loadJson() -> JSON {
-        if let path = Bundle.main.path(forResource: "windguru_spots", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "windguru", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
                 let jsonObj = JSON(data: data)

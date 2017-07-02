@@ -10,7 +10,7 @@
 		85421B281EF7E82800A2C693 /* RegionSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B271EF7E82800A2C693 /* RegionSelectionTableViewController.swift */; };
 		85421B2A1EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B291EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift */; };
 		85421B2C1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B2B1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift */; };
-		85421B321EF91B9600A2C693 /* Windguru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B311EF91B9600A2C693 /* Windguru.swift */; };
+		85421B321EF91B9600A2C693 /* Forecasts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85421B311EF91B9600A2C693 /* Forecasts.swift */; };
 		855ACE311D5B4F56006E9F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE301D5B4F56006E9F19 /* AppDelegate.swift */; };
 		855ACE331D5B4F56006E9F19 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855ACE321D5B4F56006E9F19 /* SessionViewController.swift */; };
 		855ACE361D5B4F56006E9F19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855ACE341D5B4F56006E9F19 /* Main.storyboard */; };
@@ -24,7 +24,7 @@
 		8594E6291D980FE300C9ED42 /* SessionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */; };
 		8594E62B1D98462700C9ED42 /* SessionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */; };
 		85B343B01E9CE78F0002FC58 /* SpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B343AF1E9CE78F0002FC58 /* SpotViewController.swift */; };
-		85B654011F02645900180BDD /* windguru_spots.json in Resources */ = {isa = PBXBuildFile; fileRef = 85B654001F02645900180BDD /* windguru_spots.json */; };
+		85B654011F02645900180BDD /* windguru.json in Resources */ = {isa = PBXBuildFile; fileRef = 85B654001F02645900180BDD /* windguru.json */; };
 		85B7773D1E3F20D80063C3D4 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7773C1E3F20D80063C3D4 /* Spot.swift */; };
 		85B7773F1E40756C0063C3D4 /* SpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */; };
 		85C2E3981D70995900A27D46 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2E3971D70995900A27D46 /* RatingControl.swift */; };
@@ -50,7 +50,7 @@
 		85421B271EF7E82800A2C693 /* RegionSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionSelectionTableViewController.swift; sourceTree = "<group>"; };
 		85421B291EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaSelectionTableViewController.swift; sourceTree = "<group>"; };
 		85421B2B1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotSelectionTableViewController.swift; sourceTree = "<group>"; };
-		85421B311EF91B9600A2C693 /* Windguru.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Windguru.swift; sourceTree = "<group>"; };
+		85421B311EF91B9600A2C693 /* Forecasts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecasts.swift; sourceTree = "<group>"; };
 		855ACE2D1D5B4F56006E9F19 /* SurfTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		855ACE301D5B4F56006E9F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		855ACE321D5B4F56006E9F19 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 		8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewCell.swift; sourceTree = "<group>"; };
 		8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableViewController.swift; sourceTree = "<group>"; };
 		85B343AF1E9CE78F0002FC58 /* SpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotViewController.swift; sourceTree = "<group>"; };
-		85B654001F02645900180BDD /* windguru_spots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = windguru_spots.json; sourceTree = "<group>"; };
+		85B654001F02645900180BDD /* windguru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = windguru.json; sourceTree = "<group>"; };
 		85B7773C1E3F20D80063C3D4 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTableViewCell.swift; sourceTree = "<group>"; };
 		85C2E3971D70995900A27D46 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 				85421B2B1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift */,
 				85B7773C1E3F20D80063C3D4 /* Spot.swift */,
 				8594E6261D98085600C9ED42 /* Session.swift */,
-				85B654001F02645900180BDD /* windguru_spots.json */,
-				85421B311EF91B9600A2C693 /* Windguru.swift */,
+				85B654001F02645900180BDD /* windguru.json */,
+				85421B311EF91B9600A2C693 /* Forecasts.swift */,
 				85C2E3971D70995900A27D46 /* RatingControl.swift */,
 				855ACE3A1D5B4F56006E9F19 /* Assets.xcassets */,
 				855ACE3C1D5B4F56006E9F19 /* LaunchScreen.storyboard */,
@@ -267,7 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85B654011F02645900180BDD /* windguru_spots.json in Resources */,
+				85B654011F02645900180BDD /* windguru.json in Resources */,
 				8593B9FD1ED448820040DE37 /* Podfile in Resources */,
 				855ACE541D5B505E006E9F19 /* .gitignore in Resources */,
 				855ACE3E1D5B4F56006E9F19 /* LaunchScreen.storyboard in Resources */,
@@ -385,7 +385,7 @@
 			files = (
 				85421B281EF7E82800A2C693 /* RegionSelectionTableViewController.swift in Sources */,
 				85B343B01E9CE78F0002FC58 /* SpotViewController.swift in Sources */,
-				85421B321EF91B9600A2C693 /* Windguru.swift in Sources */,
+				85421B321EF91B9600A2C693 /* Forecasts.swift in Sources */,
 				85421B2C1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift in Sources */,
 				8594E6291D980FE300C9ED42 /* SessionTableViewCell.swift in Sources */,
 				85E4BB711E47282F0019997A /* SpotTableViewController.swift in Sources */,

@@ -93,6 +93,7 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         if segue.identifier == "RegionSelections"{
             let target = segue.destination as! RegionSelectionTableViewController
             target.spot = spot
+            target.selectedForecast = "windguru"
         }
     }
     

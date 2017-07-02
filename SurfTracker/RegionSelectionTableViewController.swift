@@ -10,14 +10,15 @@ import UIKit
 
 class RegionSelectionTableViewController: UITableViewController {
     
-    var windguru: Windguru?
+    var forecasts: Forecasts?
     var regions: [String] = []
     var spot: Spot?
+    var selectedForecast = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        windguru = Windguru()
-        let unsortedRegions = (windguru?.getRegions())!
+        forecasts = Forecasts(forecast: selectedForecast)
+        let unsortedRegions = (forecasts?.getRegions())!
         regions = unsortedRegions.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
         
         // Uncomment the following line to preserve selection between presentations
@@ -95,11 +96,11 @@ class RegionSelectionTableViewController: UITableViewController {
             let target = segue.destination as! AreaSelectionTableViewController
             let selectedRegion = regions[(tableView.indexPathForSelectedRow?.row)!]
             target.region = selectedRegion
-            let unsortedAreas = (windguru?.getAreas(region: selectedRegion))!
+            let unsortedAreas = (forecasts?.getAreas(region: selectedRegion))!
             target.areas = unsortedAreas.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
             target.navigationItem.title = selectedRegion
             target.spot = spot
-            target.windguru = windguru
+            target.forecasts = forecasts
         }
     }
  
