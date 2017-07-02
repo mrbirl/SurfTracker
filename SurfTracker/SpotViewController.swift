@@ -43,7 +43,7 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
              Create spot.
             */
             // Spot needs a name, if it's nil or empty string initialisation fails. This should probably be reworked.
-            spot = Spot(name: "Example Spot", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: nil)
+            spot = Spot(name: "", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: nil)
         }
         
     }
