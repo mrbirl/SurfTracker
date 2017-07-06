@@ -87,11 +87,10 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    @IBAction func textField(_ sender: AnyObject) {
+    @IBAction func textField(_ sender: AnyObject) { // Spot name text field
+        spot?.name = spotNameTextField.text
         self.view.endEditing(true);
     }
-
-
     
     // MARK: - Navigation
 

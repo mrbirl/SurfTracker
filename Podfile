@@ -7,6 +7,7 @@ target 'SurfTracker' do
 
   # Pods for SurfTracker
   pod 'SwiftyJSON'
+  pod 'RealmSwift'
 
   target 'SurfTrackerTests' do
     inherit! :search_paths
