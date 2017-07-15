@@ -453,7 +453,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ORC-gr-W9b" kind="unwind" unwindAction="unwindToSpotWithSender:" id="BNl-fz-VwP"/>
+                                    <segue destination="ORC-gr-W9b" kind="unwind" identifier="forecastToSpot" unwindAction="unwindToSpotWithSender:" id="BNl-fz-VwP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

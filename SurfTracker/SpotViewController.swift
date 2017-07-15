@@ -94,9 +94,20 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     @IBAction func unwindToSpot(sender: UIStoryboardSegue) {
-        
+        // When a forecast is selected
         if let sourceViewController = sender.source as? SpotSelectionTableViewController {
-            print(sourceViewController.area)
+            // Depending on what was being selected, set values
+            switch sourceViewController.forecasts?.forecastName {
+                case "windguru"?:
+                    windSpotName.text = sourceViewController.selectedName
+                    windSpotURL.text = sourceViewController.selectedUrl
+                case "magicseaweed"?:
+                    magicSpotName.text = sourceViewController.selectedName
+                    magicSpotURL.text = sourceViewController.selectedUrl
+                default:
+                    print("Error: Invalid forecast case after forecast selection")
+            }
+            
         }
         
     }

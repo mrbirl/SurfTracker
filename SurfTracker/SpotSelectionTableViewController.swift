@@ -14,6 +14,8 @@ class SpotSelectionTableViewController: UITableViewController {
     var region = String()
     var area = String()
     var spots = [String]()
+    var selectedName = String()
+    var selectedUrl = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,23 +48,12 @@ class SpotSelectionTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ForecastDetails"{
-//            let target = segue.destination as! SpotViewController
-//            let selectedSpot = spots[(tableView.indexPathForSelectedRow?.row)!]
-//            let url = forecasts?.getInfo(region: region, area: area, spot: selectedSpot)
-//            
-//            switch forecasts?.forecastName {
-//                case "windguru"?:
-//                    spot?.windguru = [selectedSpot, url!] // Don't appent, we want these to be only values in this array
-//                case "magicseaweed"?:
-//                    spot?.msw = [selectedSpot, url!]
-//                default:
-//                    print("Error passing forecast info: not a valid forecast name")
-//            }
-//        }
-//        
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "forecastToSpot"{
+            selectedName = spots[(tableView.indexPathForSelectedRow?.row)!]
+            selectedUrl = (forecasts?.getInfo(region: region, area: area, spot: selectedName))!
+        }
+    }
     
 
 }
