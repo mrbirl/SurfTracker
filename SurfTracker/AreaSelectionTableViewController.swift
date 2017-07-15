@@ -13,7 +13,6 @@ class AreaSelectionTableViewController: UITableViewController {
     var forecasts: Forecasts?
     var region = String()
     var areas = [String]()
-    var spot: Spot?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +51,6 @@ class AreaSelectionTableViewController: UITableViewController {
             let unsortedSpots = forecasts?.getSpots(region: region, area: selectedArea)
             target.spots = (unsortedSpots?.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending })!
             target.navigationItem.title = selectedArea
-            target.spot = spot
             target.forecasts = forecasts
         }
     }

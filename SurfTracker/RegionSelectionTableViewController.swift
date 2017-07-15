@@ -12,7 +12,6 @@ class RegionSelectionTableViewController: UITableViewController {
     
     var forecasts: Forecasts?
     var regions: [String] = []
-    var spot: Spot?
     var selectedForecast = ""
 
     override func viewDidLoad() {
@@ -97,9 +96,9 @@ class RegionSelectionTableViewController: UITableViewController {
             let selectedRegion = regions[(tableView.indexPathForSelectedRow?.row)!]
             target.region = selectedRegion
             let unsortedAreas = (forecasts?.getAreas(region: selectedRegion))!
+            // Now sort areas alphabetically so it's a nicer menu :)
             target.areas = unsortedAreas.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
             target.navigationItem.title = selectedRegion
-            target.spot = spot
             target.forecasts = forecasts
         }
     }

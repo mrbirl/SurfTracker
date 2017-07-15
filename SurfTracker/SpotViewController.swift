@@ -42,8 +42,10 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
              Set any default values needed
              Create spot.
             */
+            
             // Spot needs a name, if it's nil or empty string initialisation fails. This should probably be reworked.
-            spot = Spot(name: "", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: nil)
+            // spot = Spot(name: "", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: nil)
+            print("No Spot Passed In - Create a spot object here in future")
         }
         
     }
@@ -88,8 +90,15 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     @IBAction func textField(_ sender: AnyObject) { // Spot name text field
-        spot?.name = spotNameTextField.text
         self.view.endEditing(true);
+    }
+    
+    @IBAction func unwindToSpot(sender: UIStoryboardSegue) {
+        
+        if let sourceViewController = sender.source as? SpotSelectionTableViewController {
+            print(sourceViewController.area)
+        }
+        
     }
     
     // MARK: - Navigation
@@ -98,7 +107,6 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let target = segue.destination as! RegionSelectionTableViewController
-        target.spot = spot
         
         if segue.identifier == "WindguruSelections"{
             target.selectedForecast = "windguru"

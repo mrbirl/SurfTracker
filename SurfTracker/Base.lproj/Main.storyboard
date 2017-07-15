@@ -453,7 +453,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Cwc-YC-Rfu" kind="show" identifier="ForecastDetails" id="WUS-i7-LU7"/>
+                                    <segue destination="ORC-gr-W9b" kind="unwind" unwindAction="unwindToSpotWithSender:" id="BNl-fz-VwP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -464,6 +464,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGR-2w-eXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ORC-gr-W9b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4265" y="1398"/>
         </scene>
@@ -509,8 +510,7 @@
         <image name="defaultSpotPhoto" width="768" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W4y-Lw-GA8"/>
-        <segue reference="6vE-6v-ADj"/>
         <segue reference="6FO-l6-DRn"/>
+        <segue reference="W4y-Lw-GA8"/>
     </inferredMetricsTieBreakers>
 </document>
