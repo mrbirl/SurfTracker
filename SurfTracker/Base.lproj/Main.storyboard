@@ -164,18 +164,25 @@
                                 <action selector="textField:" destination="Cwc-YC-Rfu" eventType="editingDidEndOnExit" id="eVB-Ld-jsR"/>
                             </connections>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FDj-QZ-M9V"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FDj-QZ-M9V">
+                            <connections>
+                                <segue destination="A4G-6j-FCH" kind="unwind" unwindAction="unwindToSpotListWithSender:" id="J9j-Jw-O8Z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="magicSpotName" destination="ngq-4O-eCF" id="pcv-dL-lZX"/>
                         <outlet property="magicSpotURL" destination="eHk-ka-KCe" id="Ymz-Sy-VK0"/>
+                        <outlet property="saveButton" destination="FDj-QZ-M9V" id="DuB-Lq-hKt"/>
                         <outlet property="spotNameTextField" destination="zgE-Zn-Ugw" id="qsb-Hc-LBY"/>
+                        <outlet property="spotNotes" destination="8j1-G0-F0b" id="C1a-dY-GXP"/>
                         <outlet property="spotPhotoImageView" destination="9Cz-zL-Sbv" id="6ml-js-l0I"/>
                         <outlet property="windSpotName" destination="cWb-gq-Dpk" id="RXe-CZ-Dmj"/>
                         <outlet property="windSpotURL" destination="da8-ZM-ihY" id="6UT-C0-puP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlJ-tZ-0du" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="A4G-6j-FCH" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="Wag-Lj-RcI">
                     <connections>
                         <action selector="selectSpotImageFromPhotoLibrary:" destination="Cwc-YC-Rfu" id="CIb-HK-ieQ"/>
@@ -511,6 +518,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6FO-l6-DRn"/>
-        <segue reference="W4y-Lw-GA8"/>
+        <segue reference="i8Y-cc-B37"/>
     </inferredMetricsTieBreakers>
 </document>

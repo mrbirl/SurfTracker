@@ -17,8 +17,12 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var windSpotURL: UILabel!
     @IBOutlet weak var magicSpotName: UILabel!
     @IBOutlet weak var magicSpotURL: UILabel!
+    @IBOutlet weak var spotNotes: UITextView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var spot: Spot?
+    var windguru: [String]?
+    var msw: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,11 +103,13 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             // Depending on what was being selected, set values
             switch sourceViewController.forecasts?.forecastName {
                 case "windguru"?:
-                    windSpotName.text = sourceViewController.selectedName
-                    windSpotURL.text = sourceViewController.selectedUrl
+                    windguru = [sourceViewController.selectedName, sourceViewController.selectedUrl]
+                    windSpotName.text = windguru?[0]
+                    windSpotURL.text = windguru?[1]
                 case "magicseaweed"?:
-                    magicSpotName.text = sourceViewController.selectedName
-                    magicSpotURL.text = sourceViewController.selectedUrl
+                    msw = [sourceViewController.selectedName, sourceViewController.selectedUrl]
+                    magicSpotName.text = msw?[0]
+                    magicSpotURL.text = msw?[1]
                 default:
                     print("Error: Invalid forecast case after forecast selection")
             }
@@ -117,13 +123,23 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let target = segue.destination as! RegionSelectionTableViewController
+        super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == "WindguruSelections"{
-            target.selectedForecast = "windguru"
-        }
-        if segue.identifier == "MagicseaweedSelections"{
-            target.selectedForecast = "magicseaweed"
+        if let button = sender as? UIBarButtonItem, button === saveButton{
+            // Saving spot
+            let spotName = spotNameTextField.text ?? ""
+            let spotPhoto = spotPhotoImageView.image
+            spot = Spot(name: spotName, sessions: nil, msw: msw, windguru: windguru, photo: spotPhoto, notes: spotNotes.text)
+            
+        } else {
+            // Selecting forecast
+            let target = segue.destination as! RegionSelectionTableViewController
+            if segue.identifier == "WindguruSelections"{
+                target.selectedForecast = "windguru"
+            }
+            if segue.identifier == "MagicseaweedSelections"{
+                target.selectedForecast = "magicseaweed"
+            }
         }
     }
     

@@ -54,6 +54,15 @@ class SpotTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: Actions
+    @IBAction func unwindToSpotList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? SpotViewController, let spot = sourceViewController.spot {
+            let newIndexPath = IndexPath(row: spots.count, section: 0)
+            spots.append(spot)
+            tableView.insertRows(at: [newIndexPath], with: .automatic) // .automatic animation option uses the best animation based on the table’s current state
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
