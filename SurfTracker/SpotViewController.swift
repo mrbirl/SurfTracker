@@ -113,12 +113,16 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
                 default:
                     print("Error: Invalid forecast case after forecast selection")
             }
-            
         }
-        
     }
     
     // MARK: - Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // Dismisses this modal scene and animates the transition back to the previous scene (spot list)
+        dismiss(animated: true, completion: nil)
+    }
+    
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

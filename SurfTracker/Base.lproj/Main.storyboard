@@ -153,7 +153,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Atf-j1-22o">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dEf-4t-uU8"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dEf-4t-uU8">
+                            <connections>
+                                <action selector="cancel:" destination="Cwc-YC-Rfu" id="xJA-e5-JyR"/>
+                            </connections>
+                        </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Spot Name" textAlignment="center" minimumFontSize="17" id="zgE-Zn-Ugw">
                             <rect key="frame" x="95.5" y="7" width="184" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
