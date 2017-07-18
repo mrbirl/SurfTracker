@@ -38,18 +38,6 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
                 magicSpotName.text = spot.msw?[0]
                 magicSpotURL.text = spot.msw?[1]
             }
-            
-        }
-        else{
-            /*
-             No existing spot data to prefill any fields
-             Set any default values needed
-             Create spot.
-            */
-            
-            // Spot needs a name, if it's nil or empty string initialisation fails. This should probably be reworked.
-            // spot = Spot(name: "", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: nil)
-            print("No Spot Passed In - Create a spot object here in future")
         }
         
     }
