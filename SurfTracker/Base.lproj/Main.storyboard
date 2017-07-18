@@ -67,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PL2-BC-nNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2103" y="346"/>
+            <point key="canvasLocation" x="1356" y="349"/>
         </scene>
         <!--Spot View Controller-->
         <scene sceneID="mcV-NF-dIX">
@@ -295,7 +295,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3697" y="349"/>
+            <point key="canvasLocation" x="2943" y="349"/>
         </scene>
         <!--Your Spots-->
         <scene sceneID="bor-iV-qh6">
@@ -329,6 +329,7 @@
                                 <connections>
                                     <outlet property="spotLabel" destination="wiA-Fa-coQ" id="dtT-9b-Fyt"/>
                                     <outlet property="spotPhotoImageView" destination="U8d-DA-XB4" id="8u6-lb-U3D"/>
+                                    <segue destination="oEu-Hw-QPH" kind="show" id="hid-bq-J1o"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -350,24 +351,6 @@
             <point key="canvasLocation" x="486" y="346"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="P6m-kB-jfN">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RCq-DN-EOh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U0F-W2-Xrx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="oEu-Hw-QPH" kind="relationship" relationship="rootViewController" id="YUv-5O-5m3"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sze-iL-Wej" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1356" y="346"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="pYa-am-cLg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BwT-IQ-OMp" sceneMemberID="viewController">
@@ -383,7 +366,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AX-Bj-S4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2905" y="-13"/>
+            <point key="canvasLocation" x="2146" y="-15"/>
         </scene>
         <!--Region Selection Table View Controller-->
         <scene sceneID="5gU-2L-dtp">
@@ -414,7 +397,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcf-XI-fxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2343" y="1400"/>
+            <point key="canvasLocation" x="2145" y="1246"/>
         </scene>
         <!--Area Selection Table View Controller-->
         <scene sceneID="x4v-KV-FWS">
@@ -445,7 +428,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4h-IO-000" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3326" y="1399"/>
+            <point key="canvasLocation" x="2942" y="1247"/>
         </scene>
         <!--Spot Selection Table View Controller-->
         <scene sceneID="e0S-qu-Bdb">
@@ -477,7 +460,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGR-2w-eXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ORC-gr-W9b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4265" y="1398"/>
+            <point key="canvasLocation" x="3820" y="1247"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4h-Rz-kQB">
@@ -521,7 +504,7 @@
         <image name="defaultSpotPhoto" width="768" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6FO-l6-DRn"/>
         <segue reference="i8Y-cc-B37"/>
+        <segue reference="9eH-UL-94y"/>
     </inferredMetricsTieBreakers>
 </document>
