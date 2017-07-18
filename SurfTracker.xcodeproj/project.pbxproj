@@ -147,9 +147,9 @@
 			children = (
 				855ACE301D5B4F56006E9F19 /* AppDelegate.swift */,
 				855ACE341D5B4F56006E9F19 /* Main.storyboard */,
-				855ACE321D5B4F56006E9F19 /* SessionViewController.swift */,
 				8594E62A1D98462700C9ED42 /* SessionTableViewController.swift */,
 				8594E6281D980FE300C9ED42 /* SessionTableViewCell.swift */,
+				855ACE321D5B4F56006E9F19 /* SessionViewController.swift */,
 				85E4BB701E47282F0019997A /* SpotTableViewController.swift */,
 				85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */,
 				85B343AF1E9CE78F0002FC58 /* SpotViewController.swift */,

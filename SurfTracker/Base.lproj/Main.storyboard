@@ -329,7 +329,7 @@
                                 <connections>
                                     <outlet property="spotLabel" destination="wiA-Fa-coQ" id="dtT-9b-Fyt"/>
                                     <outlet property="spotPhotoImageView" destination="U8d-DA-XB4" id="8u6-lb-U3D"/>
-                                    <segue destination="oEu-Hw-QPH" kind="show" id="hid-bq-J1o"/>
+                                    <segue destination="oEu-Hw-QPH" kind="show" identifier="ShowSessions" id="hid-bq-J1o"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -505,6 +505,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="i8Y-cc-B37"/>
-        <segue reference="9eH-UL-94y"/>
+        <segue reference="6FO-l6-DRn"/>
     </inferredMetricsTieBreakers>
 </document>
