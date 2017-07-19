@@ -121,7 +121,7 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             // Saving spot
             let spotName = spotNameTextField.text ?? ""
             let spotPhoto = spotPhotoImageView.image
-            spot = Spot(name: spotName, sessions: nil, msw: msw, windguru: windguru, photo: spotPhoto, notes: spotNotes.text)
+            spot = Spot(name: spotName, msw: msw, windguru: windguru, photo: spotPhoto, notes: spotNotes.text)
             
         } else {
             // Selecting forecast

@@ -99,16 +99,29 @@ class SpotTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender) // call to the superclass’s implementation
+        
+        if segue.identifier == "ShowSessions"{
+            guard let sessionTableViewController = segue.destination as? SessionTableViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedSpotCell = sender as? SpotTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedSpotCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            let selectedSpot = spots[indexPath.row]
+            sessionTableViewController.spot = selectedSpot
+        }
     }
-    */
     
+
     // MARK: Private Methods
     
     private func loadSampleSpots(){
@@ -116,15 +129,15 @@ class SpotTableViewController: UITableViewController {
         let photo2 = UIImage(named: "spot2")
         let photo3 = UIImage(named: "spot3")
         
-        guard let spot1 = Spot(name: "Lahinch", sessions: nil, msw: nil, windguru: nil, photo: photo1, notes: "This is sample spot, added as a demo.") else {
+        guard let spot1 = Spot(name: "Lahinch", msw: nil, windguru: nil, photo: photo1, notes: "This is sample spot, added as a demo.") else {
             fatalError("Unable to instantiate spot1")
         }
         
-        guard let spot2 = Spot(name: "Manly", sessions: nil, msw: nil, windguru: nil, photo: photo2, notes: "This is sample spot, added as a demo.") else {
+        guard let spot2 = Spot(name: "Manly", msw: nil, windguru: nil, photo: photo2, notes: "This is sample spot, added as a demo.") else {
             fatalError("Unable to instantiate spot1")
         }
         
-        guard let spot3 = Spot(name: "Curl Curl", sessions: nil, msw: nil, windguru: nil, photo: photo3, notes: "This is sample spot, added as a demo.") else {
+        guard let spot3 = Spot(name: "Curl Curl", msw: nil, windguru: nil, photo: photo3, notes: "This is sample spot, added as a demo.") else {
             fatalError("Unable to instantiate spot1")
         }
         

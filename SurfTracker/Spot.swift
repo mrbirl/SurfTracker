@@ -13,7 +13,7 @@ class Spot {
     // MARK: Properties
     
     var name: String?
-    var sessions: [Session]?
+    var sessions: [Session]
     var msw: [String]?
     var windguru: [String]?
     var photo: UIImage?
@@ -21,14 +21,13 @@ class Spot {
     
     //MARK: Initialization
     
-    init?(name: String?, sessions: [Session]?, msw: [String]?, windguru: [String]?, photo: UIImage?, notes: String?) {
+    init?(name: String?, msw: [String]?, windguru: [String]?, photo: UIImage?, notes: String?) {
+        
+        self.sessions = []
         
         // Initialize stored properties
         if name != nil{
             self.name = name!
-        }
-        if sessions != nil{
-            self.sessions = sessions!
         }
         if msw != nil{
             self.msw = msw!

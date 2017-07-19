@@ -13,7 +13,7 @@ class SessionTableViewController: UITableViewController {
     
     //MARK: Properties
     
-    var sessions = [Session]()
+    var spot: Spot?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,28 +21,6 @@ class SessionTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         // navigationItem.leftBarButtonItem = editButtonItem
 
-        // Load the sample data.
-        loadSampleSessions()
-    }
-    
-    func loadSampleSessions(){
-        
-        var exampleTime: String
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        dateFormatter.timeStyle = .short
-        exampleTime = (dateFormatter.string(from: Date()))
-        
-        let photo1 = UIImage(named: "session1")!
-        let session1 = Session(time: exampleTime, rating: 4, photo: photo1, tide: "High | Falling")!
-        
-        let photo2 = UIImage(named: "session2")!
-        let session2 = Session(time: exampleTime, rating: 5, photo: photo2, tide: "Low | Rising")!
-        
-        let photo3 = UIImage(named: "session3")!
-        let session3 = Session(time: exampleTime, rating: 3, photo: photo3, tide: nil)!
-        
-        sessions += [session1, session2, session3]
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +37,7 @@ class SessionTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // If we had multiple sections above for months/years, we could potentially change this value to the number of sessions in a month/year
-        return sessions.count
+        return (spot?.sessions.count)!
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,11 +48,11 @@ class SessionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SessionTableViewCell
         
         // Fetches the appropriate meal for the data source layout.
-        let session = sessions[indexPath.row]
+        let session = spot?.sessions[indexPath.row]
         
-        cell.timeLabel.text = session.time
-        cell.photoImageView.image = session.photo
-        cell.ratingControl.rating = session.rating
+        cell.timeLabel.text = session?.time
+        cell.photoImageView.image = session?.photo
+        cell.ratingControl.rating = (session?.rating)!
         
         return cell
     }
@@ -89,15 +67,15 @@ class SessionTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? SessionViewController, let session = sourceViewController.session {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing session.
-                sessions[selectedIndexPath.row] = session // Update session array replacing old session with updated one
+                spot?.sessions[selectedIndexPath.row] = session // Update session array replacing old session with updated one
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else{
                 /* No selected row in the table view, so user tapped the Add button to get to the session detail scene.
                  Add a new session. Computes the location in the table view where the new table view cell representing the new session will be inserted, and stores it in a local constant called newIndexPath. */
-                let newIndexPath = IndexPath(row: sessions.count, section: 0)
+                let newIndexPath = IndexPath(row: (spot?.sessions.count)!, section: 0)
                 
-                sessions.append(session)
+                spot?.sessions.append(session)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
@@ -117,7 +95,7 @@ class SessionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            sessions.remove(at: indexPath.row)
+            spot?.sessions.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -159,15 +137,15 @@ class SessionTableViewController: UITableViewController {
                     fatalError("Unexpected destination: \(segue.destination)")
                 }
                 guard let selectedSessionCell = sender as? SessionTableViewCell else {
-                    fatalError("Unexpected sender: \(sender)")
+                    fatalError("Unexpected sender: \(String(describing: sender))")
                 }
                 guard let indexPath = tableView.indexPath(for: selectedSessionCell) else {
                     fatalError("The selected cell is not being displayed by the table")
                 }
-                let selectedSession = sessions[indexPath.row]
+                let selectedSession = spot?.sessions[indexPath.row]
                 sessionDetailViewController.session = selectedSession
             default:
-                fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+                fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
             }
 
     }
