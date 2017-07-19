@@ -17,7 +17,9 @@ class SessionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if (spot?.name != nil){
+            self.title = (spot?.name)! + " Sessions"
+        }
         // Use the edit button item provided by the table view controller.
         // navigationItem.leftBarButtonItem = editButtonItem
 
