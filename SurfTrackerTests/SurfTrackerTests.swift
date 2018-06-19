@@ -31,19 +31,19 @@ class SurfTrackerTests: XCTestCase {
     
     // MARK: Spot Class Tests
     
-    func testSpotInitialization(){
-        // No sessions - should pass
-        let noSessionsSpot = Spot.init(name: "Manly", sessions: nil, msw: ["Area": "Example"], windguru: ["Area": "Example"], photo: nil, notes: "Some notes")
-        XCTAssertNotNil(noSessionsSpot)
-        
-        // No name - should fail
-        let okSession = Session(time: "October 8, 2016 at 5:28PM", rating: 5, photo: nil, tide: nil)
-        XCTAssertNotNil(noSessionsSpot)
-        let noNameSpot = Spot.init(name: "", sessions: [okSession!], msw: ["Area": "Example"], windguru: ["Area": "Example"], photo: nil, notes: "Some notes")
-        XCTAssertNil(noNameSpot)
-        
-        // No forecast - should pass
-        let noForecastSpot = Spot.init(name: "Manly", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: "Some notes")
-        XCTAssertNotNil(noForecastSpot)
-    }
+//    func testSpotInitialization(){
+//        // No sessions - should pass
+//        let noSessionsSpot = Spot.init(name: "Manly", sessions: nil, msw: ["Area": "Example"], windguru: ["Area": "Example"], photo: nil, notes: "Some notes")
+//        XCTAssertNotNil(noSessionsSpot)
+//        
+//        // No name - should fail
+//        let okSession = Session(time: "October 8, 2016 at 5:28PM", rating: 5, photo: nil, tide: nil)
+//        XCTAssertNotNil(noSessionsSpot)
+//        let noNameSpot = Spot.init(name: "", sessions: [okSession!], msw: ["Area": "Example"], windguru: ["Area": "Example"], photo: nil, notes: "Some notes")
+//        XCTAssertNil(noNameSpot)
+//        
+//        // No forecast - should pass
+//        let noForecastSpot = Spot.init(name: "Manly", sessions: nil, msw: nil, windguru: nil, photo: nil, notes: "Some notes")
+//        XCTAssertNotNil(noForecastSpot)
+//    }
 }

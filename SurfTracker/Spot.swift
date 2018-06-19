@@ -7,37 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Spot {
+class Spot: Object {
     
-    // MARK: Properties
-    
-    var name: String?
-    var sessions: [Session]
-    var msw: [String]?
-    var windguru: [String]?
-    var photo: UIImage?
-    var notes: String?
-    
-    //MARK: Initialization
-    
-    init?(name: String?, msw: [String]?, windguru: [String]?, photo: UIImage?, notes: String?) {
-        
-        self.sessions = []
-        
-        // Initialize stored properties
-        if name != nil{
-            self.name = name!
-        }
-        if msw != nil{
-            self.msw = msw!
-        }
-        if windguru != nil{
-            self.windguru = windguru!
-        }
-        self.photo = photo
-        self.notes = notes
-        
-    }
-    
+    @objc dynamic var name: String?
+    @objc dynamic var windguru: Windguru?
+    @objc dynamic var msw: Magicseaweed?
+    @objc dynamic var photoUrl: String?
+    @objc dynamic var notes: String?
+    let sessions = List<Session>()
 }

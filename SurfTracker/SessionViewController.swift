@@ -209,7 +209,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let rating = ratingControl.rating
         
         // Set the session to be passed to SessionTableViewController after the unwind segue.
-        session = Session(time: date, rating: rating, photo: photo, tide: tide)
+        session = Session(value: ["time": date, "rating": rating, "photo": photo, "tide": tide])
 
     }
     

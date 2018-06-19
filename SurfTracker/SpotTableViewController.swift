@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class SpotTableViewController: UITableViewController {
     
@@ -49,9 +50,25 @@ class SpotTableViewController: UITableViewController {
         let spot = spots[indexPath.row]
         
         cell.spotLabel.text = spot.name
-        cell.spotPhotoImageView.image = spot.photo
+        cell.spotPhotoImageView.image = loadImage(fileName: spot.photoUrl!)
 
         return cell
+    }
+    
+    private func loadImage(fileName: String) -> UIImage? {
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
+    }
+    
+    // Getter for directory folder
+    var documentsUrl: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
     // MARK: Actions
@@ -125,11 +142,19 @@ class SpotTableViewController: UITableViewController {
     // MARK: Private Methods
     
     private func loadSampleSpots(){
+        
+        if #available(iOS 10.0, *) {
+            os_log("Would load sample spots here", log: OSLog.default, type: .debug)
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        /*
         let photo1 = UIImage(named: "spot1")
         let photo2 = UIImage(named: "spot2")
         let photo3 = UIImage(named: "spot3")
         
-        guard let spot1 = Spot(name: "Lahinch", msw: nil, windguru: nil, photo: photo1, notes: "This is sample spot, added as a demo.") else {
+        guard let spot1 = Spot(value: ["name": "Lahinch", "msw": nil, "windguru": nil, "photo": photo1, "notes": "This is sample spot, added as a demo."]) else {
             fatalError("Unable to instantiate spot1")
         }
         
@@ -142,7 +167,7 @@ class SpotTableViewController: UITableViewController {
         }
         
         spots += [spot1, spot2, spot3]
-        
+        */
     }
 
 }

@@ -30,6 +30,8 @@
 		85B7773F1E40756C0063C3D4 /* SpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7773E1E40756C0063C3D4 /* SpotTableViewCell.swift */; };
 		85C2E3981D70995900A27D46 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C2E3971D70995900A27D46 /* RatingControl.swift */; };
 		85E4BB711E47282F0019997A /* SpotTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E4BB701E47282F0019997A /* SpotTableViewController.swift */; };
+		95665E6D20D7B74500ADCED2 /* Windguru.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95665E6C20D7B74500ADCED2 /* Windguru.swift */; };
+		95665E6F20D7B84E00ADCED2 /* Magicseaweed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95665E6E20D7B84E00ADCED2 /* Magicseaweed.swift */; };
 		B971AA51956141CEFE456754 /* Pods_SurfTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FA6E27C0C9A4EEC2C21C45C /* Pods_SurfTrackerTests.framework */; };
 		C5203A685D7B84D618C2B65F /* Pods_SurfTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6E5AD069703D2EC3E375AD /* Pods_SurfTracker.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,8 @@
 		85C2E3971D70995900A27D46 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		85E4BB701E47282F0019997A /* SpotTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTableViewController.swift; sourceTree = "<group>"; };
 		8DE60190242E6B9FF1B6510C /* Pods-SurfTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTrackerTests/Pods-SurfTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		95665E6C20D7B74500ADCED2 /* Windguru.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Windguru.swift; sourceTree = "<group>"; };
+		95665E6E20D7B84E00ADCED2 /* Magicseaweed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magicseaweed.swift; sourceTree = "<group>"; };
 		CAD4AC04BAA34601CB36D620 /* Pods-SurfTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTracker/Pods-SurfTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		E63EAC7F11C6107AFACC8CEC /* Pods-SurfTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SurfTrackerTests/Pods-SurfTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +162,8 @@
 				85421B2B1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift */,
 				85B7773C1E3F20D80063C3D4 /* Spot.swift */,
 				8594E6261D98085600C9ED42 /* Session.swift */,
+				95665E6C20D7B74500ADCED2 /* Windguru.swift */,
+				95665E6E20D7B84E00ADCED2 /* Magicseaweed.swift */,
 				85B654001F02645900180BDD /* windguru.json */,
 				8562E8231F08DFAB0038BAFB /* magicseaweed.json */,
 				85421B311EF91B9600A2C693 /* Forecasts.swift */,
@@ -388,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85421B281EF7E82800A2C693 /* RegionSelectionTableViewController.swift in Sources */,
+				95665E6F20D7B84E00ADCED2 /* Magicseaweed.swift in Sources */,
 				85B343B01E9CE78F0002FC58 /* SpotViewController.swift in Sources */,
 				85421B321EF91B9600A2C693 /* Forecasts.swift in Sources */,
 				85421B2C1EF7F28F00A2C693 /* SpotSelectionTableViewController.swift in Sources */,
@@ -401,6 +408,7 @@
 				85B7773F1E40756C0063C3D4 /* SpotTableViewCell.swift in Sources */,
 				855ACE391D5B4F56006E9F19 /* SurfTracker.xcdatamodeld in Sources */,
 				85421B2A1EF7EA9E00A2C693 /* AreaSelectionTableViewController.swift in Sources */,
+				95665E6D20D7B74500ADCED2 /* Windguru.swift in Sources */,
 				855ACE311D5B4F56006E9F19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

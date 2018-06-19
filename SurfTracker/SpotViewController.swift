@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -21,8 +22,14 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var spot: Spot?
-    var windguru: [String]?
-    var msw: [String]?
+    var windguru = Windguru()
+    var msw = Magicseaweed()
+    var spotPhotoStringPath: String?
+    
+    // Getter for directory folder
+    var documentsUrl: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +38,12 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         if let spot = spot {
             spotNameTextField.text = spot.name
             if spot.windguru != nil{
-                windSpotName.text = spot.windguru?[0]
-                windSpotURL.text = spot.windguru?[1]
+                windSpotName.text = spot.windguru?.name
+                windSpotURL.text = spot.windguru?.url
             }
             if spot.msw != nil{
-                magicSpotName.text = spot.msw?[0]
-                magicSpotURL.text = spot.msw?[1]
+                magicSpotName.text = spot.msw?.name
+                magicSpotURL.text = spot.msw?.url
             }
         }
         
@@ -64,8 +71,22 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Set photoImageView to display the selected image.
         spotPhotoImageView.image = selectedImage
         
+        // Save the image
+        spotPhotoStringPath = saveImage(image: selectedImage)
+        
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func saveImage(image: UIImage) -> String? {
+        let fileName = "FileName"
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileName // ----> Save fileName
+        }
+        print("Error saving image")
+        return nil
     }
     
     
@@ -91,13 +112,15 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             // Depending on what was being selected, set values
             switch sourceViewController.forecasts?.forecastName {
                 case "windguru"?:
-                    windguru = [sourceViewController.selectedName, sourceViewController.selectedUrl]
-                    windSpotName.text = windguru?[0]
-                    windSpotURL.text = windguru?[1]
+                    windguru.name = sourceViewController.selectedName
+                    windguru.url = sourceViewController.selectedUrl
+                    windSpotName.text = windguru.name
+                    windSpotURL.text = windguru.url
                 case "magicseaweed"?:
-                    msw = [sourceViewController.selectedName, sourceViewController.selectedUrl]
-                    magicSpotName.text = msw?[0]
-                    magicSpotURL.text = msw?[1]
+                    msw.name = sourceViewController.selectedName
+                    msw.url = sourceViewController.selectedUrl
+                    magicSpotName.text = msw.name
+                    magicSpotURL.text = msw.url
                 default:
                     print("Error: Invalid forecast case after forecast selection")
             }
@@ -120,9 +143,7 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         if let button = sender as? UIBarButtonItem, button === saveButton{
             // Saving spot
             let spotName = spotNameTextField.text ?? ""
-            let spotPhoto = spotPhotoImageView.image
-            spot = Spot(name: spotName, msw: msw, windguru: windguru, photo: spotPhoto, notes: spotNotes.text)
-            
+            spot = Spot(value: ["name": spotName, "msw": msw, "windguru": windguru, "photoUrl": spotPhotoStringPath, "notes": spotNotes.text])
         } else {
             // Selecting forecast
             let target = segue.destination as! RegionSelectionTableViewController
