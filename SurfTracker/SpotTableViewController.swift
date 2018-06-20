@@ -50,7 +50,9 @@ class SpotTableViewController: UITableViewController {
         let spot = spots[indexPath.row]
         
         cell.spotLabel.text = spot.name
-        cell.spotPhotoImageView.image = loadImage(fileName: spot.photoUrl!)
+        if spot.photoUrl != nil{
+            cell.spotPhotoImageView.image = loadImage(fileName: spot.photoUrl!)
+        }
 
         return cell
     }
