@@ -13,7 +13,7 @@ class Session: Object {
     
     @objc dynamic var time = "" // No initialiser so defaulting to empty string for now
     @objc dynamic var rating = 0 // No initialiser so defaulting to 0 for now
-    @objc dynamic var photo: UIImage?
+    @objc dynamic var photoUrl: String?
     @objc dynamic var tide: String?
     let spot = LinkingObjects(fromType: Spot.self, property: "sessions")
 }

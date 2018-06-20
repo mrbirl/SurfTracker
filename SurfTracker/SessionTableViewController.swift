@@ -53,8 +53,11 @@ class SessionTableViewController: UITableViewController {
         let session = spot?.sessions[indexPath.row]
         
         cell.timeLabel.text = session?.time
-        cell.photoImageView.image = session?.photo
+        // cell.photoImageView.image = session?.photo
         cell.ratingControl.rating = (session?.rating)!
+        if session?.photoUrl != nil{
+            cell.photoImageView.image = Helper.loadImage(fileName: (session?.photoUrl!)!)
+        }
         
         return cell
     }

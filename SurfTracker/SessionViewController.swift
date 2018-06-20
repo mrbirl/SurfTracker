@@ -24,7 +24,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
      or constructed as part of adding a new session.
      */
     var session: Session?
-    
+    var sessionPhotoUrl: String?
     
     var tidePickOption = [["Low", "Low/Mid", "Mid", "Mid/High", "High"], ["Rising", "Falling"]]
     
@@ -38,10 +38,13 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         if let session = session {
             sessionDateTextField.text = session.time
             tideTextField.text = session.tide
-            sessionPhotoImageView.image = session.photo
             ratingControl.rating = session.rating
             // Set default tide (for 'cancel' button when selecting tide)
             default_tide = session.tide
+            // Load photo if there is one
+            if session.photoUrl != nil{
+                sessionPhotoImageView.image = Helper.loadImage(fileName: session.photoUrl!)
+            }
         }
         else{
             
@@ -164,6 +167,9 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Set photoImageView to display the selected image.
         sessionPhotoImageView.image = selectedImage
         
+        // Save the image
+        sessionPhotoUrl = Helper.saveImage(image: selectedImage)
+        
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
@@ -205,11 +211,10 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         let date = sessionDateTextField.text ?? ""
         let tide = tideTextField.text ?? ""
-        let photo = sessionPhotoImageView.image
         let rating = ratingControl.rating
         
         // Set the session to be passed to SessionTableViewController after the unwind segue.
-        session = Session(value: ["time": date, "rating": rating, "photo": photo, "tide": tide])
+        session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide])
 
     }
     
