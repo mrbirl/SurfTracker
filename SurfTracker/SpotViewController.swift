@@ -26,11 +26,6 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     var msw = Magicseaweed()
     var spotPhotoStringPath: String?
     
-    // Getter for directory folder
-    var documentsUrl: URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,23 +67,11 @@ class SpotViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         spotPhotoImageView.image = selectedImage
         
         // Save the image
-        spotPhotoStringPath = saveImage(image: selectedImage)
+        spotPhotoStringPath = Helper.saveImage(image: selectedImage)
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
-    
-    private func saveImage(image: UIImage) -> String? {
-        let fileName = "FileName"
-        let fileURL = documentsUrl.appendingPathComponent(fileName)
-        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
-            try? imageData.write(to: fileURL, options: .atomic)
-            return fileName // ----> Save fileName
-        }
-        print("Error saving image")
-        return nil
-    }
-    
     
     // MARK: Actions
     @IBAction func selectSpotImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {

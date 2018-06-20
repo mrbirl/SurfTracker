@@ -51,26 +51,10 @@ class SpotTableViewController: UITableViewController {
         
         cell.spotLabel.text = spot.name
         if spot.photoUrl != nil{
-            cell.spotPhotoImageView.image = loadImage(fileName: spot.photoUrl!)
+            cell.spotPhotoImageView.image = Helper.loadImage(fileName: spot.photoUrl!)
         }
 
         return cell
-    }
-    
-    private func loadImage(fileName: String) -> UIImage? {
-        let fileURL = documentsUrl.appendingPathComponent(fileName)
-        do {
-            let imageData = try Data(contentsOf: fileURL)
-            return UIImage(data: imageData)
-        } catch {
-            print("Error loading image : \(error)")
-        }
-        return nil
-    }
-    
-    // Getter for directory folder
-    var documentsUrl: URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
     // MARK: Actions
