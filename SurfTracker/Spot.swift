@@ -16,5 +16,5 @@ class Spot: Object {
     @objc dynamic var msw: Magicseaweed?
     @objc dynamic var photoUrl: String?
     @objc dynamic var notes: String?
-    let sessions = List<Session>()
+    var sessions = List<Session>()
 }

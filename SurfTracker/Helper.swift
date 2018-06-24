@@ -7,8 +7,38 @@
 //
 
 import UIKit
+import RealmSwift
 
 class Helper{
+    
+    // MARK: Realm Management
+    
+    // Save something to Realm
+    static func realmAdd(item: Object) {
+        let realm = try! Realm()
+        try! realm.write() {
+            realm.add(item)
+        }
+    }
+    
+    // Delete something from Realm
+    static func realmDelete(item: Object){
+        let realm = try! Realm()
+        // Delete an object with a transaction
+        try! realm.write {
+            realm.delete(item)
+        }
+    }
+    
+    // Update sessions for a spot
+    static func realmUpdateSessions(spot: Spot, newSessions: List<Session>){
+        let realm = try! Realm()
+        // Update an object with a transaction
+        try! realm.write {
+            spot.sessions = newSessions
+        }
+    }
+    
     
     // MARK: Documents Management
     
