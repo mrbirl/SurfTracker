@@ -55,7 +55,8 @@ class Helper{
     
     // Save image and return name
     static func saveImage(image: UIImage) -> String? {
-        let fileName = "FileName"
+        let timeInterval = NSDate().timeIntervalSince1970 * 1000 // Seconds since epoch, converted to milliseconds to remove decimal point
+        let fileName = String(format:"%f", timeInterval)
         let fileURL = getDocumentsUrl().appendingPathComponent(fileName)
         if let imageData = UIImageJPEGRepresentation(image, 1.0) {
             try? imageData.write(to: fileURL, options: .atomic)
