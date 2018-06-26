@@ -21,6 +21,12 @@ class Helper{
         }
     }
     
+    // Get something from Realm
+    static func realmGetSpots() -> Results<Spot>{
+        let realm = try! Realm()
+        return realm.objects(Spot.self)
+    }
+    
     // Delete something from Realm
     static func realmDelete(item: Object){
         let realm = try! Realm()

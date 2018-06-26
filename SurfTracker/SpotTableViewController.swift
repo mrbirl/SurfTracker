@@ -13,13 +13,12 @@ class SpotTableViewController: UITableViewController {
     
     // MARK: Properties
     
-    var spots = [Spot]()
+    var results = Helper.realmGetSpots()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadSampleSpots()
+        // loadSampleSpots()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +33,7 @@ class SpotTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return spots.count
+        return results.count
     }
 
     
@@ -43,11 +42,11 @@ class SpotTableViewController: UITableViewController {
         let cellIdentifier = "SpotTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SpotTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            fatalError("The dequeued cell is not an instance of SpotTableViewCell.")
         }
         
         // Fetches the appropriate spot for the data source layout.
-        let spot = spots[indexPath.row]
+        let spot = results[indexPath.row]
         
         cell.spotLabel.text = spot.name
         if spot.photoUrl != nil{
@@ -57,50 +56,16 @@ class SpotTableViewController: UITableViewController {
         return cell
     }
     
+    
+    
     // MARK: Actions
     @IBAction func unwindToSpotList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SpotViewController, let spot = sourceViewController.spot {
-            let newIndexPath = IndexPath(row: spots.count, section: 0)
-            spots.append(spot)
-            tableView.insertRows(at: [newIndexPath], with: .automatic) // .automatic animation option uses the best animation based on the table’s current state
+            let newIndexPath = IndexPath(row: results.count, section: 0)
+            results = Helper.realmGetSpots()
+            self.tableView.reloadData()
         }
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     // MARK: - Navigation
 
@@ -119,7 +84,7 @@ class SpotTableViewController: UITableViewController {
             guard let indexPath = tableView.indexPath(for: selectedSpotCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
-            let selectedSpot = spots[indexPath.row]
+            let selectedSpot = results[indexPath.row]
             sessionTableViewController.spot = selectedSpot
         }
     }
@@ -129,11 +94,7 @@ class SpotTableViewController: UITableViewController {
     
     private func loadSampleSpots(){
         
-        if #available(iOS 10.0, *) {
-            os_log("Would load sample spots here", log: OSLog.default, type: .debug)
-        } else {
-            // Fallback on earlier versions
-        }
+        print("Would load sample spots here")
         
         /*
         let photo1 = UIImage(named: "spot1")
