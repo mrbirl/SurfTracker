@@ -62,7 +62,6 @@ class SpotTableViewController: UITableViewController {
     @IBAction func unwindToSpotList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? SpotViewController, let spot = sourceViewController.spot {
             let newIndexPath = IndexPath(row: results.count, section: 0)
-            results = Helper.realmGetSpots()
             self.tableView.reloadData()
         }
     }
