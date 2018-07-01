@@ -18,10 +18,10 @@ class SessionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if (spot?.name != nil){
             self.title = (spot?.name)! + " Sessions"
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,9 +78,9 @@ class SessionTableViewController: UITableViewController {
                 /* No selected row in the table view, so user tapped the Add button to get to the session detail scene.
                  Add a new session. Computes the location in the table view where the new table view cell representing the new session will be inserted, and stores it in a local constant called newIndexPath. */
                 let newIndexPath = IndexPath(row: (spot?.sessions.count)!, section: 0)
-                
-                spot?.sessions.append(session)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
+                Helper.realmAdd(item: session)
+                Helper.realmAddSessionToSpot(spot: spot!, session: session)
+                self.tableView.reloadData()
             }
         }
     }
@@ -100,11 +100,7 @@ class SessionTableViewController: UITableViewController {
         
         switch(segue.identifier ?? "") { // If identifier is nil, nil-coalescing operator (??) replaces it empty string
             case "AddSession":
-                if #available(iOS 10.0, *) {
-                    os_log("Adding a new session.", log: OSLog.default, type: .debug)
-                } else {
-                    // Fallback on earlier versions
-            }
+                print("Adding a new session.")
             case "ShowSession":
                 guard let sessionDetailViewController = segue.destination as? SessionViewController else {
                     fatalError("Unexpected destination: \(segue.destination)")

@@ -36,6 +36,23 @@ class Helper{
         }
     }
     
+    // Get sessions from Realm
+//    static func realmGetSessions(spotId: String?) -> Results<Session>{
+//        let realm = try! Realm()
+//        if (spotId != nil){ // Get sessions for specific spot
+//            return realm.objects(Session.self).filter("example = 'example'")
+//        }
+//        return realm.objects(Session.self) // Return all sessions for all spots
+//    }
+    
+    // Add session to spot
+    static func realmAddSessionToSpot(spot: Spot, session: Session){
+        let realm = try! Realm()
+        try! realm.write {
+            spot.sessions.append(session)
+        }
+    }
+    
     // Update sessions for a spot
     static func realmUpdateSessions(spot: Spot, newSessions: List<Session>){
         let realm = try! Realm()
