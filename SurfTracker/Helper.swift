@@ -11,6 +11,16 @@ import RealmSwift
 
 class Helper{
     
+    // MARK: General
+    
+    // Generate a unique key
+    static func createUniqueKey() -> Int{
+        // Seconds since epoch, converted to milliseconds (to remove decimal point), then converted to Int
+        let timeInterval = Int(NSDate().timeIntervalSince1970 * 1000)
+        let randomNumber = Int(arc4random()) // Add a random number incase something else calls at the same millisecond
+        return timeInterval + randomNumber
+    }
+    
     // MARK: Realm Management
     
     // Save something to Realm
@@ -21,7 +31,7 @@ class Helper{
         }
     }
     
-    // Get something from Realm
+    // Get spot from Realm
     static func realmGetSpots() -> Results<Spot>{
         let realm = try! Realm()
         return realm.objects(Spot.self)
@@ -45,7 +55,6 @@ class Helper{
         }
     }
     
-    
     // MARK: Documents Management
     
     // Getter for directory folder
@@ -55,8 +64,7 @@ class Helper{
     
     // Save image and return name
     static func saveImage(image: UIImage) -> String? {
-        let timeInterval = NSDate().timeIntervalSince1970 * 1000 // Seconds since epoch, converted to milliseconds to remove decimal point
-        let fileName = String(format:"%f", timeInterval)
+        let fileName = String(format:"%f", createUniqueKey())
         let fileURL = getDocumentsUrl().appendingPathComponent(fileName)
         if let imageData = UIImageJPEGRepresentation(image, 1.0) {
             try? imageData.write(to: fileURL, options: .atomic)
