@@ -36,6 +36,8 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         // Set up views if editing an existing Session.
         if let session = session {
+            print("Session exists")
+            print(session.id)
             sessionDateTextField.text = session.time
             tideTextField.text = session.tide
             ratingControl.rating = session.rating
@@ -70,82 +72,45 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func styleDatePicker(){
         
         let dateToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
-        
         dateToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        
         dateToolBar.barStyle = UIBarStyle.blackTranslucent
-        
         dateToolBar.tintColor = UIColor.white
-        
         dateToolBar.backgroundColor = UIColor.black
-        
-        
         let dateNowBtn = UIBarButtonItem(title: "Now", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SessionViewController.tappedNowDateToolBarBtn))
-        
         let dateOkBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(SessionViewController.dateDonePressed))
-        
         let dateFlexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        
         let dateLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        
         dateLabel.font = UIFont(name: "Helvetica", size: 12)
-        
         dateLabel.backgroundColor = UIColor.clear
-        
         dateLabel.textColor = UIColor.white
-        
         dateLabel.text = "Set Session Time"
-        
         dateLabel.textAlignment = NSTextAlignment.center
-        
         let dateTextBtn = UIBarButtonItem(customView: dateLabel)
-        
         dateToolBar.setItems([dateNowBtn,dateFlexSpace,dateTextBtn,dateFlexSpace,dateOkBarBtn], animated: true)
-        
         sessionDateTextField.inputAccessoryView = dateToolBar
     }
     
     func addTidePicker(){
         // Picker for Tide
         let tidePickerView = UIPickerView()
-        
         tidePickerView.delegate = self
-        
         tideTextField.inputView = tidePickerView
-        
         let tideToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
-        
         tideToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        
         tideToolBar.barStyle = UIBarStyle.blackTranslucent
-        
         tideToolBar.tintColor = UIColor.white
-        
         tideToolBar.backgroundColor = UIColor.black
-        
-        
         let tideCancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SessionViewController.tappedTideCancelToolBarBtn))
-        
         let tideDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(SessionViewController.tideDonePressed))
-        
         let tideFlexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        
         let tideLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        
         tideLabel.font = UIFont(name: "Helvetica", size: 12)
-        
         tideLabel.backgroundColor = UIColor.clear
-        
         tideLabel.textColor = UIColor.white
-        
         tideLabel.text = "Set Tide Stage"
-        
         tideLabel.textAlignment = NSTextAlignment.center
-        
         let tideTextBtn = UIBarButtonItem(customView: tideLabel)
-        
         tideToolBar.setItems([tideCancelButton,tideFlexSpace,tideTextBtn,tideFlexSpace,tideDoneButton], animated: true)
-        
         tideTextField.inputAccessoryView = tideToolBar
 
     }
@@ -163,13 +128,10 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         // The info dictionary contains multiple representations of the image, and this uses the original.
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
         // Set photoImageView to display the selected image.
         sessionPhotoImageView.image = selectedImage
-        
         // Save the image
         sessionPhotoUrl = Helper.saveImage(image: selectedImage)
-        
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
@@ -205,16 +167,21 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             } else {
                 // Fallback on earlier versions
             }
-            
             return
         }
         
         let date = sessionDateTextField.text ?? ""
         let tide = tideTextField.text ?? ""
         let rating = ratingControl.rating
-        
         // Set the session to be passed to SessionTableViewController after the unwind segue.
-        session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide])
+        if(session != nil){
+            // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
+            session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide])
+        }
+        else{
+            // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
+            session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide])
+        }
 
     }
     
@@ -225,13 +192,10 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
-        
         // Only allow photos to be picked, not taken.
         imagePickerController.sourceType = .photoLibrary
-        
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
-        
         present(imagePickerController, animated: true, completion: nil)
         
     }
@@ -258,13 +222,9 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func tappedNowDateToolBarBtn(_ sender: UIBarButtonItem) {
         
         let dateformatter = DateFormatter()
-        
         dateformatter.dateStyle = DateFormatter.Style.long
-        
         dateformatter.timeStyle = DateFormatter.Style.short
-        
         sessionDateTextField.text = dateformatter.string(from: Date())
-        
         sessionDateTextField.resignFirstResponder()
     }
     
@@ -275,11 +235,8 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func datePickerValueChanged(_ sender: UIDatePicker) {
         
         let dateFormatter = DateFormatter()
-        
         dateFormatter.dateStyle = DateFormatter.Style.long
-        
         dateFormatter.timeStyle = DateFormatter.Style.short
-        
         sessionDateTextField.text = dateFormatter.string(from: sender.date)
         
     }
@@ -293,9 +250,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func tappedTideCancelToolBarBtn(_ sender: UIBarButtonItem) {
-        
         tideTextField.text = default_tide
-        
         tideTextField.resignFirstResponder()
     }
     
@@ -316,8 +271,6 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let tide_direction = tidePickOption[1][pickerView.selectedRow(inComponent: 1)]
         tideTextField.text = "Tide - " + tide_height + ", " + tide_direction
     }
-    
-
 
 }
 
