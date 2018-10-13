@@ -550,6 +550,7 @@
 			baseConfigurationReference = CAD4AC04BAA34601CB36D620 /* Pods-SurfTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RX323D9VYA;
 				INFOPLIST_FILE = SurfTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.brassil.SurfTracker;
@@ -563,6 +564,7 @@
 			baseConfigurationReference = 44C4C054F6A78023B7B90361 /* Pods-SurfTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RX323D9VYA;
 				INFOPLIST_FILE = SurfTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.brassil.SurfTracker;

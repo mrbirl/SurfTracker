@@ -15,6 +15,7 @@ class Session: Object {
     @objc dynamic var rating = 0 // No initialiser so defaulting to 0 for now
     @objc dynamic var photoUrl: String?
     @objc dynamic var tide: String?
+    var windSpeed = RealmOptional<Int>()
     let spot = LinkingObjects(fromType: Spot.self, property: "sessions")
     
     override static func primaryKey() -> String? {

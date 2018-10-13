@@ -18,6 +18,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var sessionPhotoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var windSpeedTextField: UITextField!
     
     /*
      This value is either passed by `SessionTableViewController` in `prepare(for:sender:)`
@@ -25,19 +26,15 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
      */
     var session: Session?
     var sessionPhotoUrl: String?
-    
     var tidePickOption = [["Low", "Low/Mid", "Mid", "Mid/High", "High"], ["Rising", "Falling"]]
     
     var default_tide: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.ß
         
         // Set up views if editing an existing Session.
         if let session = session {
-            print("Session exists")
-            print(session.id)
             sessionDateTextField.text = session.time
             tideTextField.text = session.tide
             ratingControl.rating = session.rating
@@ -46,6 +43,9 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             // Load photo if there is one
             if session.photoUrl != nil{
                 sessionPhotoImageView.image = Helper.loadImage(fileName: session.photoUrl!)
+            }
+            if session.windSpeed.value != nil{
+                windSpeedTextField.text = String(session.windSpeed.value!)
             }
         }
         else{
@@ -173,18 +173,18 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let date = sessionDateTextField.text ?? ""
         let tide = tideTextField.text ?? ""
         let rating = ratingControl.rating
+        let windSpeed = Int(windSpeedTextField.text!) ?? nil
         // Set the session to be passed to SessionTableViewController after the unwind segue.
         if(session != nil){
             // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
-            session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide])
+            session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed])
         }
         else{
             // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
-            session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide])
+            session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed])
         }
 
     }
-    
     
     // MARK: Actions
     
