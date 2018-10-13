@@ -19,6 +19,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var windSpeedTextField: UITextField!
+    @IBOutlet weak var swellPeriodTextField: UITextField!
     
     /*
      This value is either passed by `SessionTableViewController` in `prepare(for:sender:)`
@@ -46,6 +47,9 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
             if session.windSpeed.value != nil{
                 windSpeedTextField.text = String(session.windSpeed.value!)
+            }
+            if session.swellPeriod.value != nil{
+                swellPeriodTextField.text = String(session.swellPeriod.value!)
             }
         }
         else{
@@ -174,14 +178,15 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         let tide = tideTextField.text ?? ""
         let rating = ratingControl.rating
         let windSpeed = Int(windSpeedTextField.text!) ?? nil
+        let swellPeriod = Int(swellPeriodTextField.text!) ?? nil
         // Set the session to be passed to SessionTableViewController after the unwind segue.
         if(session != nil){
             // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
-            session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed])
+            session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod])
         }
         else{
             // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
-            session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed])
+            session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod])
         }
 
     }

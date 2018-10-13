@@ -16,6 +16,7 @@ class Session: Object {
     @objc dynamic var photoUrl: String?
     @objc dynamic var tide: String?
     var windSpeed = RealmOptional<Int>()
+    var swellPeriod = RealmOptional<Int>()
     let spot = LinkingObjects(fromType: Spot.self, property: "sessions")
     
     override static func primaryKey() -> String? {
