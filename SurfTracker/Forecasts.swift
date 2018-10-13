@@ -25,7 +25,7 @@ class Forecasts {
         if let path = Bundle.main.path(forResource: forecastName, ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
-                let jsonObj = JSON(data: data)
+                let jsonObj = try JSON(data: data)
                 return jsonObj
             } catch let error {
                 print(error.localizedDescription)
