@@ -207,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-1j-tEj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="505"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="579.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-Ur-UgU" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
                                         <rect key="frame" x="67.5" y="0.0" width="240" height="44"/>
@@ -217,26 +217,39 @@
                                             <constraint firstAttribute="height" constant="44" id="iBB-Cj-YVh"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wind Speed" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l54-Kc-HCN">
-                                        <rect key="frame" x="138" y="56" width="99.5" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Wind Speed" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l54-Kc-HCN">
+                                        <rect key="frame" x="115.5" y="56" width="144" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Swell Period" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-0B-cKj">
-                                        <rect key="frame" x="137.5" y="98" width="100.5" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Swell Period" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8Q-0B-cKj">
+                                        <rect key="frame" x="115.5" y="98" width="144.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Swell Size" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7OF-0L-gbm">
-                                        <rect key="frame" x="144.5" y="140" width="86" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Swell Size" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7OF-0L-gbm">
+                                        <rect key="frame" x="122.5" y="140" width="130.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kG-Gg-CsD">
+                                        <rect key="frame" x="113" y="182" width="149" height="30"/>
+                                        <state key="normal" title="Select Wind Direction"/>
+                                        <connections>
+                                            <segue destination="lpn-Jr-K5v" kind="show" identifier="DirectionSelection" id="Vge-I4-TnQ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Wind Direction Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLe-YV-UDa">
+                                        <rect key="frame" x="82" y="224" width="211" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Tide Stage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-6c-4Hs">
-                                        <rect key="frame" x="0.0" y="182" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="256.5" width="375" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ebR-ru-JQf"/>
                                         </constraints>
@@ -244,7 +257,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="uCZ-4e-iWE">
-                                        <rect key="frame" x="47" y="224" width="281" height="281"/>
+                                        <rect key="frame" x="47" y="298.5" width="281" height="281"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uCZ-4e-iWE" secondAttribute="height" multiplier="1:1" id="zdF-zr-1O1"/>
@@ -278,7 +291,7 @@
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="Ndh-Bi-8L2"/>
                             </connections>
                         </barButtonItem>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" id="xA2-Sk-vC3">
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" id="xA2-Sk-vC3">
                             <rect key="frame" x="78" y="7" width="238" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -304,6 +317,7 @@
                         <outlet property="swellPeriodTextField" destination="V8Q-0B-cKj" id="VSG-ET-0QB"/>
                         <outlet property="swellSizeTextField" destination="7OF-0L-gbm" id="MA5-1R-3of"/>
                         <outlet property="tideTextField" destination="E9Z-6c-4Hs" id="ixy-Z0-2lF"/>
+                        <outlet property="windDirectionLabel" destination="WLe-YV-UDa" id="I4c-6N-DH1"/>
                         <outlet property="windSpeedTextField" destination="l54-Kc-HCN" id="RXh-n9-fkE"/>
                     </connections>
                 </viewController>
@@ -520,6 +534,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xL1-3A-DG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="486" y="1248"/>
+        </scene>
+        <!--Direction Selection Table View Controller-->
+        <scene sceneID="kPe-8C-ltn">
+            <objects>
+                <tableViewController id="lpn-Jr-K5v" customClass="DirectionSelectionTableViewController" customModule="SurfTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uY4-2w-XVo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DirectionSelectionCell" id="sHt-Vf-0MS">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sHt-Vf-0MS" id="eYz-EE-8ua">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="PFZ-wo-MWa" kind="unwind" identifier="directionToSession" unwindAction="unwindToSessionWithSender:" id="LvR-6z-4X0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lpn-Jr-K5v" id="N78-Zw-yJo"/>
+                            <outlet property="delegate" destination="lpn-Jr-K5v" id="vBh-I5-JLP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abx-Jd-vBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PFZ-wo-MWa" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3788" y="346"/>
         </scene>
     </scenes>
     <resources>

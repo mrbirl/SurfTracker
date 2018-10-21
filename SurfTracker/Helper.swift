@@ -80,4 +80,33 @@ class Helper{
         return nil
     }
     
+    // MARK: Compass Functions
+    
+    static func getCompassPoints() -> [String]{
+        let compassPoints = [
+            "North",
+            "North, North East",
+            "North East",
+            "East North East",
+            "East",
+            "East South East",
+            "South East",
+            "South South East",
+            "South",
+            "South South West",
+            "South West",
+            "West South West",
+            "West",
+            "West North West",
+            "North West",
+            "North North West"
+        ]
+        return compassPoints
+    }
+    
+    static func getCompassPointFromInt(pointNum: Int) -> String{
+        let compassPoints = getCompassPoints()
+        return compassPoints[pointNum]
+    }
+    
 }

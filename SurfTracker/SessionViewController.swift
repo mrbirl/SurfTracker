@@ -21,6 +21,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var windSpeedTextField: UITextField!
     @IBOutlet weak var swellPeriodTextField: UITextField!
     @IBOutlet weak var swellSizeTextField: UITextField!
+    @IBOutlet weak var windDirectionLabel: UILabel!
     
     /*
      This value is either passed by `SessionTableViewController` in `prepare(for:sender:)`
@@ -28,8 +29,8 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
      */
     var session: Session?
     var sessionPhotoUrl: String?
+    var windDirection: Int?
     var tidePickOption = [["Low", "Low/Mid", "Mid", "Mid/High", "High"], ["Rising", "Falling"]]
-    
     var default_tide: String?
     
     override func viewDidLoad() {
@@ -146,6 +147,14 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // MARK: Navigation
     
+    @IBAction func unwindToSession(sender: UIStoryboardSegue) {
+        // When a forecast is selected
+        if let sourceViewController = sender.source as? DirectionSelectionTableViewController {
+            windDirection = sourceViewController.selectedPoint
+            windDirectionLabel.text = Helper.getCompassPointFromInt(pointNum: windDirection!)
+        }
+    }
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
         let isPresentingInAddSessionMode = presentingViewController is UINavigationController
@@ -162,36 +171,26 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*
-            It’s a good habit to always call super.prepare(for:sender:) whenever you override prepare(for:sender:).
-            That way you won’t forget it when you subclass a different class.
-         */
+        
         super.prepare(for: segue, sender: sender)
         
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            if #available(iOS 10.0, *) {
-                os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            } else {
-                // Fallback on earlier versions
+        if let button = sender as? UIBarButtonItem, button === saveButton{
+            // Configure the destination view controller only when the save button is pressed.
+            let date = sessionDateTextField.text ?? ""
+            let tide = tideTextField.text ?? ""
+            let rating = ratingControl.rating
+            let windSpeed = Int(windSpeedTextField.text!) ?? nil
+            let swellPeriod = Int(swellPeriodTextField.text!) ?? nil
+            let swellSize = Double(swellSizeTextField.text!) ?? nil
+            // Set the session to be passed to SessionTableViewController after the unwind segue.
+            if(session != nil){
+                // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
+                session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize])
             }
-            return
-        }
-        
-        let date = sessionDateTextField.text ?? ""
-        let tide = tideTextField.text ?? ""
-        let rating = ratingControl.rating
-        let windSpeed = Int(windSpeedTextField.text!) ?? nil
-        let swellPeriod = Int(swellPeriodTextField.text!) ?? nil
-        let swellSize = Double(swellSizeTextField.text!) ?? nil
-        // Set the session to be passed to SessionTableViewController after the unwind segue.
-        if(session != nil){
-            // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
-            session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize])
-        }
-        else{
-            // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
-            session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize])
+            else{
+                // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
+                session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize])
+            }
         }
 
     }
