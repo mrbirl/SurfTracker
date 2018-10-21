@@ -56,6 +56,10 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             if session.swellSize.value != nil{
                 swellSizeTextField.text = String(session.swellSize.value!)
             }
+            if session.windDirection.value != nil{
+                windDirection = session.windDirection.value! // Need to also update the value as this is what gets saved
+                windDirectionLabel.text = (Helper.getCompassPointFromInt(pointNum: session.windDirection.value!))
+            }
         }
         else{
             
@@ -185,11 +189,11 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             // Set the session to be passed to SessionTableViewController after the unwind segue.
             if(session != nil){
                 // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
-                session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize])
+                session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection])
             }
             else{
                 // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
-                session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize])
+                session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection])
             }
         }
 
