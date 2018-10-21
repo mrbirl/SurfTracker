@@ -12,6 +12,7 @@ class DirectionSelectionTableViewController: UITableViewController {
     
     var compassPoints: [String] = []
     var selectedPoint = Int()
+    var directionDestination = "" // What this direction will be used for (wind or swell)
     
     override func viewDidLoad() {
         super.viewDidLoad()

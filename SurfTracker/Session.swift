@@ -17,6 +17,7 @@ class Session: Object {
     @objc dynamic var tide: String?
     var windSpeed = RealmOptional<Int>()
     var windDirection = RealmOptional<Int>()
+    var swellDirection = RealmOptional<Int>()
     var swellPeriod = RealmOptional<Int>()
     var swellSize = RealmOptional<Double>()
     let spot = LinkingObjects(fromType: Spot.self, property: "sessions")

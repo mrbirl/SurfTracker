@@ -207,7 +207,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-1j-tEj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="579.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="654"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lTl-Ur-UgU" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
                                         <rect key="frame" x="67.5" y="0.0" width="240" height="44"/>
@@ -239,7 +239,7 @@
                                         <rect key="frame" x="113" y="182" width="149" height="30"/>
                                         <state key="normal" title="Select Wind Direction"/>
                                         <connections>
-                                            <segue destination="lpn-Jr-K5v" kind="show" identifier="DirectionSelection" id="Vge-I4-TnQ"/>
+                                            <segue destination="lpn-Jr-K5v" kind="show" identifier="WindDirectionSelection" id="Vge-I4-TnQ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Wind Direction Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLe-YV-UDa">
@@ -248,8 +248,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YG5-9i-zXS">
+                                        <rect key="frame" x="113" y="256.5" width="149" height="30"/>
+                                        <state key="normal" title="Select Swell Direction"/>
+                                        <connections>
+                                            <segue destination="lpn-Jr-K5v" kind="show" identifier="SwellDirectionSelection" id="ieX-QT-AHD"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Swell Direction Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibM-up-zb3">
+                                        <rect key="frame" x="82" y="298.5" width="211.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="21" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose Tide Stage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-6c-4Hs">
-                                        <rect key="frame" x="0.0" y="256.5" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="331" width="375" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="ebR-ru-JQf"/>
                                         </constraints>
@@ -257,7 +270,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="uCZ-4e-iWE">
-                                        <rect key="frame" x="47" y="298.5" width="281" height="281"/>
+                                        <rect key="frame" x="47" y="373" width="281" height="281"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uCZ-4e-iWE" secondAttribute="height" multiplier="1:1" id="zdF-zr-1O1"/>
@@ -314,6 +327,7 @@
                         <outlet property="saveButton" destination="wCO-kK-USC" id="Eu4-t6-AHU"/>
                         <outlet property="sessionDateTextField" destination="xA2-Sk-vC3" id="FKg-Kx-IdZ"/>
                         <outlet property="sessionPhotoImageView" destination="uCZ-4e-iWE" id="RVw-x0-rEJ"/>
+                        <outlet property="swellDirectionLabel" destination="ibM-up-zb3" id="YBl-Mr-JPL"/>
                         <outlet property="swellPeriodTextField" destination="V8Q-0B-cKj" id="VSG-ET-0QB"/>
                         <outlet property="swellSizeTextField" destination="7OF-0L-gbm" id="MA5-1R-3of"/>
                         <outlet property="tideTextField" destination="E9Z-6c-4Hs" id="ixy-Z0-2lF"/>
@@ -573,6 +587,7 @@
         <image name="defaultSpotPhoto" width="614.4000244140625" height="614.4000244140625"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ieX-QT-AHD"/>
         <segue reference="i8Y-cc-B37"/>
         <segue reference="6FO-l6-DRn"/>
     </inferredMetricsTieBreakers>

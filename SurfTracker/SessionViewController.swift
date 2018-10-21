@@ -22,6 +22,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var swellPeriodTextField: UITextField!
     @IBOutlet weak var swellSizeTextField: UITextField!
     @IBOutlet weak var windDirectionLabel: UILabel!
+    @IBOutlet weak var swellDirectionLabel: UILabel!
     
     /*
      This value is either passed by `SessionTableViewController` in `prepare(for:sender:)`
@@ -30,6 +31,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var session: Session?
     var sessionPhotoUrl: String?
     var windDirection: Int?
+    var swellDirection: Int?
     var tidePickOption = [["Low", "Low/Mid", "Mid", "Mid/High", "High"], ["Rising", "Falling"]]
     var default_tide: String?
     
@@ -59,6 +61,10 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             if session.windDirection.value != nil{
                 windDirection = session.windDirection.value! // Need to also update the value as this is what gets saved
                 windDirectionLabel.text = (Helper.getCompassPointFromInt(pointNum: session.windDirection.value!))
+            }
+            if session.swellDirection.value != nil{
+                swellDirection = session.swellDirection.value! // Need to also update the value as this is what gets saved
+                swellDirectionLabel.text = (Helper.getCompassPointFromInt(pointNum: session.swellDirection.value!))
             }
         }
         else{
@@ -154,8 +160,18 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func unwindToSession(sender: UIStoryboardSegue) {
         // When a forecast is selected
         if let sourceViewController = sender.source as? DirectionSelectionTableViewController {
-            windDirection = sourceViewController.selectedPoint
-            windDirectionLabel.text = Helper.getCompassPointFromInt(pointNum: windDirection!)
+            switch sourceViewController.directionDestination{
+            case "windDirection":
+                windDirection = sourceViewController.selectedPoint
+                windDirectionLabel.text = Helper.getCompassPointFromInt(pointNum: windDirection!)
+            case "swellDirection":
+                swellDirection = sourceViewController.selectedPoint
+                swellDirectionLabel.text = Helper.getCompassPointFromInt(pointNum: swellDirection!)
+            default:
+                print("Error: Invalid direction selection case")
+            }
+            
+            
         }
     }
     
@@ -189,11 +205,21 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             // Set the session to be passed to SessionTableViewController after the unwind segue.
             if(session != nil){
                 // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
-                session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection])
+                session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection, "swellDirection": swellDirection])
             }
             else{
                 // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
-                session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection])
+                session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection, "swellDirection": swellDirection])
+            }
+        }
+        else {
+            // Selection compass direction
+            let target = segue.destination as! DirectionSelectionTableViewController
+            if segue.identifier == "WindDirectionSelection"{
+                target.directionDestination = "windDirection"
+            }
+            if segue.identifier == "SwellDirectionSelection"{
+                target.directionDestination = "swellDirection"
             }
         }
 
