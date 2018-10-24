@@ -11,8 +11,8 @@ import RealmSwift
 
 class Session: Object {
     dynamic var id = UUID().uuidString
-    @objc dynamic var time = "" // No initialiser so defaulting to empty string for now
     @objc dynamic var rating = 0 // No initialiser so defaulting to 0 for now
+    @objc dynamic var time: Date?
     @objc dynamic var photoUrl: String?
     @objc dynamic var tide: String?
     var windSpeed = RealmOptional<Int>()

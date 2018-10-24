@@ -51,7 +51,7 @@ class SessionTableViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let session = spot?.sessions[indexPath.row]
         
-        cell.timeLabel.text = session?.time
+        cell.timeLabel.text = Helper.timeToString(sessionTime: (session?.time)!)
         // cell.photoImageView.image = session?.photo
         cell.ratingControl.rating = (session?.rating)!
         if session?.photoUrl != nil{

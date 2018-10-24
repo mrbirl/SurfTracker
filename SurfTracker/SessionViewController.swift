@@ -32,6 +32,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var sessionPhotoUrl: String?
     var windDirection: Int?
     var swellDirection: Int?
+    var sessionTime: Date?
     var tidePickOption = [["Low", "Low/Mid", "Mid", "Mid/High", "High"], ["Rising", "Falling"]]
     var default_tide: String?
     
@@ -40,7 +41,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         // Set up views if editing an existing Session.
         if let session = session {
-            sessionDateTextField.text = session.time
+            sessionDateTextField.text = Helper.timeToString(sessionTime: session.time!)
             tideTextField.text = session.tide
             ratingControl.rating = session.rating
             // Set default tide (for 'cancel' button when selecting tide)
@@ -68,14 +69,11 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
         else{
-            
             default_tide = ""
-            
             // Set the default time for the session
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = DateFormatter.Style.long
-            dateFormatter.timeStyle = .short
-            sessionDateTextField.text = (dateFormatter.string(from: Date()))
+            sessionTime = Date()
+            // Add the time to the text field, formatted
+            sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
         }
         
         // Add date picker done buttons and styling for session time/date selection
@@ -196,7 +194,6 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         if let button = sender as? UIBarButtonItem, button === saveButton{
             // Configure the destination view controller only when the save button is pressed.
-            let date = sessionDateTextField.text ?? ""
             let tide = tideTextField.text ?? ""
             let rating = ratingControl.rating
             let windSpeed = Int(windSpeedTextField.text!) ?? nil
@@ -205,11 +202,11 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             // Set the session to be passed to SessionTableViewController after the unwind segue.
             if(session != nil){
                 // Updating an existing session. Create a new session with the same id as the old one, so Realm will use this to update the old one when written to Realm
-                session = Session(value: ["id": session!.id, "time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection, "swellDirection": swellDirection])
+                session = Session(value: ["id": session!.id, "time": sessionTime, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection, "swellDirection": swellDirection])
             }
             else{
                 // This is a new session, not an update. Create a session which can be saved and added to the spot from the table view
-                session = Session(value: ["time": date, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection, "swellDirection": swellDirection])
+                session = Session(value: ["time": sessionTime, "rating": rating, "photoUrl": sessionPhotoUrl, "tide": tide, "windSpeed": windSpeed, "swellPeriod": swellPeriod, "swellSize": swellSize, "windDirection": windDirection, "swellDirection": swellDirection])
             }
         }
         else {
@@ -243,27 +240,19 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func sessionDateEditing(_ sender: UITextField) {
         let datePickerView: UIDatePicker = UIDatePicker()
-        
         datePickerView.datePickerMode = UIDatePickerMode.dateAndTime
         datePickerView.minuteInterval = 15
-        
         sender.inputView = datePickerView
-        
         datePickerView.addTarget(self, action: #selector(SessionViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
     func dateDonePressed(_ sender: UIBarButtonItem) {
-        
         sessionDateTextField.resignFirstResponder()
-        
     }
     
     func tappedNowDateToolBarBtn(_ sender: UIBarButtonItem) {
-        
-        let dateformatter = DateFormatter()
-        dateformatter.dateStyle = DateFormatter.Style.long
-        dateformatter.timeStyle = DateFormatter.Style.short
-        sessionDateTextField.text = dateformatter.string(from: Date())
+        sessionTime = Date() // Set session time to now
+        sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
         sessionDateTextField.resignFirstResponder()
     }
     
@@ -272,12 +261,8 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     func datePickerValueChanged(_ sender: UIDatePicker) {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        dateFormatter.timeStyle = DateFormatter.Style.short
-        sessionDateTextField.text = dateFormatter.string(from: sender.date)
-        
+        sessionTime = sender.date
+        sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
     }
     
     // Tide picker management

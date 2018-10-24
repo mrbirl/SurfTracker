@@ -109,4 +109,14 @@ class Helper{
         return compassPoints[pointNum]
     }
     
+    // MARK: Other
+    
+    // Take session time (Date) and return formatted string
+    static func timeToString(sessionTime: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.long
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: sessionTime)
+    }
+    
 }
