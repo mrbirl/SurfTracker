@@ -44,6 +44,9 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             sessionDateTextField.text = Helper.timeToString(sessionTime: session.time!)
             tideTextField.text = session.tide
             ratingControl.rating = session.rating
+            // Existing sessions always have a time - update the default values here
+            sessionTime = session.time!
+            sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
             // Set default tide (for 'cancel' button when selecting tide)
             default_tide = session.tide
             // Load photo if there is one
