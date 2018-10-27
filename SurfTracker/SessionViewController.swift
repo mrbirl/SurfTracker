@@ -9,12 +9,11 @@
 import UIKit
 import os.log
 
-class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SessionViewController: UIViewController, UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // MARK: Properties
     
     @IBOutlet weak var sessionDateTextField: UITextField!
-    @IBOutlet weak var tideTextField: UITextField!
     @IBOutlet weak var sessionPhotoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -23,6 +22,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var swellSizeTextField: UITextField!
     @IBOutlet weak var windDirectionLabel: UILabel!
     @IBOutlet weak var swellDirectionLabel: UILabel!
+    @IBOutlet weak var tideSegment: UISegmentedControl!
     
     /*
      This value is either passed by `SessionTableViewController` in `prepare(for:sender:)`
@@ -33,8 +33,7 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var windDirection: Int?
     var swellDirection: Int?
     var sessionTime: Date?
-    var tidePickOption = [["Low", "Low/Mid", "Mid", "Mid/High", "High"], ["Rising", "Falling"]]
-    var default_tide: String?
+    var tide: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +41,10 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Set up views if editing an existing Session.
         if let session = session {
             sessionDateTextField.text = Helper.timeToString(sessionTime: session.time!)
-            tideTextField.text = session.tide
             ratingControl.rating = session.rating
             // Existing sessions always have a time - update the default values here
             sessionTime = session.time!
             sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
-            // Set default tide (for 'cancel' button when selecting tide)
-            default_tide = session.tide
             // Load photo if there is one
             if session.photoUrl != nil{
                 sessionPhotoImageView.image = Helper.loadImage(fileName: session.photoUrl!)
@@ -70,9 +66,12 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
                 swellDirection = session.swellDirection.value! // Need to also update the value as this is what gets saved
                 swellDirectionLabel.text = (Helper.getCompassPointFromInt(pointNum: session.swellDirection.value!))
             }
+            if session.tide.value != nil{
+                tide = session.tide.value!
+                tideSegment.selectedSegmentIndex = tide!
+            }
         }
         else{
-            default_tide = ""
             // Set the default time for the session
             sessionTime = Date()
             // Add the time to the text field, formatted
@@ -81,9 +80,6 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         // Add date picker done buttons and styling for session time/date selection
         styleDatePicker()
-        
-        // Add tide picker for session tide
-        addTidePicker()
         
     }
     
@@ -109,32 +105,6 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         dateToolBar.setItems([dateNowBtn,dateFlexSpace,dateTextBtn,dateFlexSpace,dateOkBarBtn], animated: true)
         sessionDateTextField.inputAccessoryView = dateToolBar
     }
-    
-    func addTidePicker(){
-        // Picker for Tide
-        let tidePickerView = UIPickerView()
-        tidePickerView.delegate = self
-        tideTextField.inputView = tidePickerView
-        let tideToolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
-        tideToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        tideToolBar.barStyle = UIBarStyle.blackTranslucent
-        tideToolBar.tintColor = UIColor.white
-        tideToolBar.backgroundColor = UIColor.black
-        let tideCancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SessionViewController.tappedTideCancelToolBarBtn))
-        let tideDoneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(SessionViewController.tideDonePressed))
-        let tideFlexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        let tideLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
-        tideLabel.font = UIFont(name: "Helvetica", size: 12)
-        tideLabel.backgroundColor = UIColor.clear
-        tideLabel.textColor = UIColor.white
-        tideLabel.text = "Set Tide Stage"
-        tideLabel.textAlignment = NSTextAlignment.center
-        let tideTextBtn = UIBarButtonItem(customView: tideLabel)
-        tideToolBar.setItems([tideCancelButton,tideFlexSpace,tideTextBtn,tideFlexSpace,tideDoneButton], animated: true)
-        tideTextField.inputAccessoryView = tideToolBar
-
-    }
-    
     
     // MARK: UIImagePickerControllerDelegate
     
@@ -197,7 +167,6 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         
         if let button = sender as? UIBarButtonItem, button === saveButton{
             // Configure the destination view controller only when the save button is pressed.
-            let tide = tideTextField.text ?? ""
             let rating = ratingControl.rating
             let windSpeed = Int(windSpeedTextField.text!) ?? nil
             let swellPeriod = Int(swellPeriodTextField.text!) ?? nil
@@ -226,6 +195,20 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     // MARK: Actions
+    
+    @IBAction func tideChanged(_ sender: Any) {
+        switch tideSegment.selectedSegmentIndex
+        {
+        case 0:
+            tide = 0
+        case 1:
+            tide = 1
+        case 2:
+            tide = 2
+        default:
+            break
+        }
+    }
     
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         
@@ -266,37 +249,6 @@ class SessionViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func datePickerValueChanged(_ sender: UIDatePicker) {
         sessionTime = sender.date
         sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
-    }
-    
-    // Tide picker management
-    
-    func tideDonePressed(_ sender: UIBarButtonItem) {
-        default_tide = tideTextField.text  // Update current tide default, in case user cancels when editing again
-        tideTextField.resignFirstResponder()
-        
-    }
-    
-    func tappedTideCancelToolBarBtn(_ sender: UIBarButtonItem) {
-        tideTextField.text = default_tide
-        tideTextField.resignFirstResponder()
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return tidePickOption.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return tidePickOption[component].count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return tidePickOption[component][row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let tide_height = tidePickOption[0][pickerView.selectedRow(inComponent: 0)]
-        let tide_direction = tidePickOption[1][pickerView.selectedRow(inComponent: 1)]
-        tideTextField.text = "Tide - " + tide_height + ", " + tide_direction
     }
 
 }
