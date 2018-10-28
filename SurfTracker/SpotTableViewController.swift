@@ -17,7 +17,6 @@ class SpotTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // loadSampleSpots()
         
     }
 
@@ -88,32 +87,5 @@ class SpotTableViewController: UITableViewController {
         }
     }
     
-
-    // MARK: Private Methods
-    
-    private func loadSampleSpots(){
-        
-        print("Would load sample spots here")
-        
-        /*
-        let photo1 = UIImage(named: "spot1")
-        let photo2 = UIImage(named: "spot2")
-        let photo3 = UIImage(named: "spot3")
-        
-        guard let spot1 = Spot(value: ["name": "Lahinch", "msw": nil, "windguru": nil, "photo": photo1, "notes": "This is sample spot, added as a demo."]) else {
-            fatalError("Unable to instantiate spot1")
-        }
-        
-        guard let spot2 = Spot(name: "Manly", msw: nil, windguru: nil, photo: photo2, notes: "This is sample spot, added as a demo.") else {
-            fatalError("Unable to instantiate spot1")
-        }
-        
-        guard let spot3 = Spot(name: "Curl Curl", msw: nil, windguru: nil, photo: photo3, notes: "This is sample spot, added as a demo.") else {
-            fatalError("Unable to instantiate spot1")
-        }
-        
-        spots += [spot1, spot2, spot3]
-        */
-    }
 
 }
