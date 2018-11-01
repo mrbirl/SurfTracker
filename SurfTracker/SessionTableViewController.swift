@@ -116,6 +116,8 @@ class SessionTableViewController: UITableViewController {
                 }
                 let selectedSession = spot?.sessions[indexPath.row]
                 sessionDetailViewController.session = selectedSession
+                // Hide the cancel button because we're showing, not creating
+                sessionDetailViewController.navigationItem.setLeftBarButton(nil, animated: true)
             default:
                 fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
             }

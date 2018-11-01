@@ -40,11 +40,11 @@ class SessionViewController: UIViewController, UIPickerViewDelegate, UIImagePick
         
         // Set up views if editing an existing Session.
         if let session = session {
-            sessionDateTextField.text = Helper.timeToString(sessionTime: session.time!)
+            self.title = Helper.timeToString(sessionTime: session.time!)
             ratingControl.rating = session.rating
             // Existing sessions always have a time - update the default values here
             sessionTime = session.time!
-            sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
+            self.title = Helper.timeToString(sessionTime: sessionTime!)
             // Load photo if there is one
             if session.photoUrl != nil{
                 sessionPhotoImageView.image = Helper.loadImage(fileName: session.photoUrl!)
@@ -79,7 +79,7 @@ class SessionViewController: UIViewController, UIPickerViewDelegate, UIImagePick
         }
         
         // Add date picker done buttons and styling for session time/date selection
-        styleDatePicker()
+        //styleDatePicker()
         
     }
     
