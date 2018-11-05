@@ -74,12 +74,11 @@ class SessionViewController: UIViewController, UIPickerViewDelegate, UIImagePick
         else{
             // Set the default time for the session
             sessionTime = Date()
+            // Add date picker done buttons and styling for session time/date selection
+            styleDatePicker()
             // Add the time to the text field, formatted
             sessionDateTextField.text = Helper.timeToString(sessionTime: sessionTime!)
         }
-        
-        // Add date picker done buttons and styling for session time/date selection
-        //styleDatePicker()
         
     }
     
