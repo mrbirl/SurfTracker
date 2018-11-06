@@ -17,7 +17,11 @@ class SpotTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Reload the data whenever this table view loads. Doing this because the average rating for a spot may have changed
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,8 +50,9 @@ class SpotTableViewController: UITableViewController {
         
         // Fetches the appropriate spot for the data source layout.
         let spot = results[indexPath.row]
-        
         cell.spotLabel.text = spot.name
+        let spotRating = Helper.getSpotRating(spot: spot)
+        print(spotRating)
         if spot.photoUrl != nil{
             cell.spotPhotoImageView.image = Helper.loadImage(fileName: spot.photoUrl!)
         }

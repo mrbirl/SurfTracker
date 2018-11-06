@@ -119,4 +119,22 @@ class Helper{
         return dateFormatter.string(from: sessionTime)
     }
     
+    // Get average rating for spot
+    static func getSpotRating(spot: Spot) -> Int{
+        var average = 0
+        // Only work out the average if there's some sessions to work with
+        if spot.sessions.count != 0{
+            // Get all the session ratings for a spot
+            var sessionRatings = [Int]()
+            for session in spot.sessions{
+                sessionRatings.append(session.rating)
+            }
+            // Count up the session ratings
+            let sumOfRatings = sessionRatings.reduce(0, +)
+            // Divide the sum of ratings by the number of ratings and return that value
+            average = (sumOfRatings/sessionRatings.count)
+        }
+        return average
+    }
+    
 }
