@@ -378,9 +378,15 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fpr-2V-YfF" customClass="RatingControl" customModule="SurfTracker" customModuleProvider="target">
+                                            <rect key="frame" x="101" y="35" width="252" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="RatingControl" destination="fpr-2V-YfF" id="FuL-S0-i0r"/>
                                     <outlet property="spotLabel" destination="wiA-Fa-coQ" id="dtT-9b-Fyt"/>
                                     <outlet property="spotPhotoImageView" destination="U8d-DA-XB4" id="8u6-lb-U3D"/>
                                     <segue destination="oEu-Hw-QPH" kind="show" identifier="ShowSessions" id="hid-bq-J1o"/>

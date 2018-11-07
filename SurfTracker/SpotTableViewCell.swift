@@ -13,8 +13,8 @@ class SpotTableViewCell: UITableViewCell {
     // MARK: Properties
     @IBOutlet weak var spotLabel: UILabel!
     @IBOutlet weak var spotPhotoImageView: UIImageView!
+    @IBOutlet weak var RatingControl: RatingControl!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
