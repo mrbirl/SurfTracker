@@ -49,6 +49,14 @@ class Helper{
         }
     }
     
+    // Update average rating of spot
+    static func realmUpdateSpotRating(spot: Spot){
+        let realm = try! Realm()
+        try! realm.write {
+            spot.averageRating = Double(getSpotRating(spot: spot))
+        }
+    }
+    
     // MARK: Documents Management
     
     // Getter for directory folder
@@ -120,8 +128,9 @@ class Helper{
     }
     
     // Get average rating for spot
-    static func getSpotRating(spot: Spot) -> Int{
-        var average = 0
+    static func getSpotRating(spot: Spot) -> Double{
+        print("Calculating spot ratings")
+        var average = 0.0
         // Only work out the average if there's some sessions to work with
         if spot.sessions.count != 0{
             // Get all the session ratings for a spot
@@ -132,7 +141,7 @@ class Helper{
             // Count up the session ratings
             let sumOfRatings = sessionRatings.reduce(0, +)
             // Divide the sum of ratings by the number of ratings and return that value
-            average = (sumOfRatings/sessionRatings.count)
+            average = Double(sumOfRatings/sessionRatings.count)
         }
         return average
     }

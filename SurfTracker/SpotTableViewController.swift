@@ -46,8 +46,7 @@ class SpotTableViewController: UITableViewController {
         // Fetches the appropriate spot for the data source layout.
         let spot = results[indexPath.row]
         cell.spotLabel.text = spot.name
-        let spotRating = Helper.getSpotRating(spot: spot)
-        cell.RatingControl.rating = spotRating
+        cell.RatingControl.rating = Int(spot.averageRating)
         if spot.photoUrl != nil{
             cell.spotPhotoImageView.image = Helper.loadImage(fileName: spot.photoUrl!)
         }
@@ -56,8 +55,9 @@ class SpotTableViewController: UITableViewController {
     }
     
     func reloadTableData(){
-        print("Spot table updated")
+        results = Helper.realmGetSpots() // Get a fresh list of spot details
         self.tableView.reloadData()
+        print("Spot table updated")
     }
     
     

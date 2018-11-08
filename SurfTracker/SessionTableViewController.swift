@@ -69,24 +69,23 @@ class SessionTableViewController: UITableViewController {
     @IBAction func unwindToSessionList(sender: UIStoryboardSegue) {
         
         if let sourceViewController = sender.source as? SessionViewController, let session = sourceViewController.session {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSaved"), object: nil)
-            print("Notified of session save")
+            
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing session.
                 Helper.realmAdd(item: session, update: true)
-                //Helper.realmAddSessionToSpot(spot: spot!, session: session) // add spot to list (updates in this case, since object is already in it)
-                //spot?.sessions[selectedIndexPath.row] = session // Update session array replacing old session with updated one
-                //tableView.reloadRows(at: [selectedIndexPath], with: .none)
                 self.tableView.reloadData()
             }
             else{
-                /* No selected row in the table view, so user tapped the Add button to get to the session detail scene.
-                 Add a new session. Computes the location in the table view where the new table view cell representing the new session will be inserted, and stores it in a local constant called newIndexPath. */
+                // No selected row in the table view, so user tapped the Add button to get to the session detail scene.
                 let newIndexPath = IndexPath(row: (spot?.sessions.count)!, section: 0)
                 Helper.realmAdd(item: session)
                 Helper.realmAddSessionToSpot(spot: spot!, session: session)
                 self.tableView.reloadData()
             }
+            // Update spot average rating (in case ratings changed in session) and tell spot table to update itself
+            Helper.realmUpdateSpotRating(spot: spot!)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSaved"), object: nil)
+            print("Notified of session save")
         }
     }
     
