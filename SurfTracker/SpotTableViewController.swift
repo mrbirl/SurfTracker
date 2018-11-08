@@ -17,11 +17,7 @@ class SpotTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        // Reload the data whenever this table view loads. Doing this because the average rating for a spot may have changed
-        self.tableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: NSNotification.Name(rawValue: "SessionSaved"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,12 +43,11 @@ class SpotTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SpotTableViewCell  else {
             fatalError("The dequeued cell is not an instance of SpotTableViewCell.")
         }
-        
         // Fetches the appropriate spot for the data source layout.
         let spot = results[indexPath.row]
         cell.spotLabel.text = spot.name
         let spotRating = Helper.getSpotRating(spot: spot)
-        print(spotRating)
+        cell.RatingControl.rating = spotRating
         if spot.photoUrl != nil{
             cell.spotPhotoImageView.image = Helper.loadImage(fileName: spot.photoUrl!)
         }
@@ -60,6 +55,10 @@ class SpotTableViewController: UITableViewController {
         return cell
     }
     
+    func reloadTableData(){
+        print("Spot table updated")
+        self.tableView.reloadData()
+    }
     
     
     // MARK: Actions

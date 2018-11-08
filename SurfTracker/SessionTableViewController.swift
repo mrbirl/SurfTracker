@@ -69,6 +69,8 @@ class SessionTableViewController: UITableViewController {
     @IBAction func unwindToSessionList(sender: UIStoryboardSegue) {
         
         if let sourceViewController = sender.source as? SessionViewController, let session = sourceViewController.session {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "SessionSaved"), object: nil)
+            print("Notified of session save")
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing session.
                 Helper.realmAdd(item: session, update: true)
