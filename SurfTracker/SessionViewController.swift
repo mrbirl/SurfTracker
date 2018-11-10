@@ -46,7 +46,8 @@ class SessionViewController: UIViewController, UIPickerViewDelegate, UIImagePick
             sessionTime = session.time!
             self.title = Helper.timeToString(sessionTime: sessionTime!)
             // Load photo if there is one
-            if session.photoUrl != nil{
+            if session.photoUrl != nil {
+                sessionPhotoUrl = session.photoUrl
                 sessionPhotoImageView.image = Helper.loadImage(fileName: session.photoUrl!)
             }
             if session.windSpeed.value != nil{
