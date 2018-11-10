@@ -204,6 +204,8 @@ class SessionViewController: UIViewController, UIPickerViewDelegate, UIImagePick
             tide = 1
         case 2:
             tide = 2
+        case 3:
+            tide = 3
         default:
             break
         }
